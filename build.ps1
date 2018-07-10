@@ -9,7 +9,7 @@ function Copy-NodeModule ($dist) {
     Copy-Item $src $dst -Recurse -Force;
 }
 
-choco install yarn -y
+npm install yarn -g
 yarn install
 
 $nodeModules = @(
