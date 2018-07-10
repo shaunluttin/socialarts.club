@@ -1,3 +1,6 @@
+#
+# This script currently augments the deploy.cmd script.
+#
 
 function Copy-NodeModule ($dist) {
     $src = "node_modules\$dist"
@@ -6,9 +9,7 @@ function Copy-NodeModule ($dist) {
     Copy-Item $src $dst -Recurse -Force;
 }
 
-# install dotnet core
-# install yarn
-
+choco install yarn -y
 yarn install
 
 $nodeModules = @(
