@@ -8,7 +8,7 @@ namespace socialarts.club.IEnumerableExtensions
 {
     public static class IEnumerableExtensions
     {
-        // TODO Use Response Extensions?
+        // TODO (Shaun) Consider using Responsive Extensions
         public static async Task<IEnumerable<T>> WhereAsync<T>(this IEnumerable<T> source, Func<T, Task<bool>> func)
         {
             var result = new List<T>();

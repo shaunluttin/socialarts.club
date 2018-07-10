@@ -1,7 +1,7 @@
 @model socialarts.club.ViewComponents.NavbarViewComponentModel
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">socialarts.club</a>
+  <a class="navbar-brand" href="/">socialarts.club</a>
   <button 
     class="navbar-toggler" 
     type="button" 
@@ -17,6 +17,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="@item.Url">@item.Title</a>
             </li>
+
+            // TODO (Shaun) Add a drop down list for the Tools directory.
+            // This might be a use case of a tree structue pattern such as Composite.
         }
     </ul>
   </div>

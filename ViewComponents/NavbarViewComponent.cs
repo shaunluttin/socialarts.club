@@ -13,7 +13,18 @@ namespace socialarts.club.ViewComponents
 {
     public class NavbarViewComponent : ViewComponent
     {
+        private const string PageDirective = "@page";
+
+        // TODO (Shaun) Inject these excluded items.
+        private readonly List<string> ExcludeList = new List<string> 
+        {
+            "Index",
+            "Error", 
+            "Privacy", 
+        };
+
         private readonly RazorProjectFileSystem _razorFileSystem;
+
         private readonly RazorPagesOptions _pagesOptions;
 
         public NavbarViewComponent(
@@ -24,19 +35,17 @@ namespace socialarts.club.ViewComponents
             _pagesOptions = pagesOptionsAccessor.Value;
         }
 
-        private const string Directive = @"@page";
-
         // See: Mvc\src\Microsoft.AspNetCore.Mvc.RazorPages\Internal\RazorProjectPageRouteModelProvider.cs
         // See: Razor\src\Microsoft.AspNetCore.Mvc.Razor.Extensions\PageDirective.cs
         public async Task<IViewComponentResult> InvokeAsync()
         {
             var navbarItems = await _razorFileSystem
                 .EnumerateItems(_pagesOptions.RootDirectory)
-                .WhereAsync(async item => await IsPage(item)) 
+                .WhereAsync(async item => await BelongsInNavbar(item)) 
                 .Select(item => new NavbarItemViewModel
                     {
                         Url = item.FilePathWithoutExtension,
-                        Title = item.FileName
+                        Title = item.FileName.Replace(item.Extension, "")
                     });
 
             var model = new NavbarViewComponentModel
@@ -47,17 +56,23 @@ namespace socialarts.club.ViewComponents
             return View(model);
         }
 
-        public async Task<bool> IsPage(RazorProjectItem item)
-        {
+        public async Task<bool> BelongsInNavbar(RazorProjectItem item) => 
+            !OnExcludeList(item) && 
+            await HasPageDirective(item);
+
+        public bool OnExcludeList(RazorProjectItem item) =>
+            ExcludeList.Any(x => x == item.FileName.Replace(item.Extension, ""));
+
+        public async Task<bool> HasPageDirective(RazorProjectItem item) {
             string line;
 
-            // TODO (Shaun) Should we use Span<T> and .NET Core Pipes?
+            // TODO (Shaun) Consider using the Span<T> and Pipes API.
             var file = new StreamReader(item.PhysicalPath);
             while ((line = await file.ReadLineAsync()) != null)
             {
                 var trimmed = line.Trim();
 
-                if (trimmed == Directive)
+                if (trimmed == PageDirective)
                 {
                     return true;
                 }

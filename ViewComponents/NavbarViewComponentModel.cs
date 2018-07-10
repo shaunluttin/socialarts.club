@@ -4,7 +4,7 @@ namespace socialarts.club.ViewComponents
 {
     public class NavbarItemViewModel
     {
-        // TODO (Shaun) Change type to Uri
+        // TODO (Shaun) Change type to Uri for safety.
         public string Url { get; set; }
 
         public string Title { get; set; }
