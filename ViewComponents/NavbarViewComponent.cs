@@ -15,12 +15,15 @@ namespace socialarts.club.ViewComponents
     {
         private const string PageDirective = "@page";
 
-        // TODO (Shaun) Inject these excluded items.
+        // TODO (Shaun) Inject these excluded items and/or use better filters.
         private readonly List<string> ExcludeList = new List<string> 
         {
             "Index",
             "Error", 
             "Privacy", 
+            "_CookieConsentPartial",
+            "_Layout",
+            "_LoginPartial",
         };
 
         private readonly RazorProjectFileSystem _razorFileSystem;
@@ -64,21 +67,8 @@ namespace socialarts.club.ViewComponents
             ExcludeList.Any(x => x == item.FileName.Replace(item.Extension, ""));
 
         public async Task<bool> HasPageDirective(RazorProjectItem item) {
-            string line;
-
-            // TODO (Shaun) Consider using the Span<T> and Pipes API.
-            var file = new StreamReader(item.PhysicalPath);
-            while ((line = await file.ReadLineAsync()) != null)
-            {
-                var trimmed = line.Trim();
-
-                if (trimmed == PageDirective)
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            // TODO (Shaun) Determine how to find the @page directive.
+            return await Task.FromResult(true);
         }
     }
 }
