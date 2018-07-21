@@ -6,12 +6,25 @@
 <h2>@ViewData["Title"]</h2>
 
 <form>
-    <form-group-input type="datetime" label="Date:"></form-group-input>
-    <form-group-input type="text" label="Time:"></form-group-input>
-    <form-group-input type="text" label="Place:"></form-group-input>
+    <div class="row">
+        <div class="col">
+            <form-group-input type="datetime" label="Date:"></form-group-input>
+        </div>
+        <div class="col">
+            <form-group-input type="text" label="Time:"></form-group-input>
+        </div>
+        <div class="col">
+            <form-group-input type="text" label="Place:"></form-group-input>
+        </div>
+    </div>
     <form-group-textarea label="Person/Situation:"></form-group-textarea>
     <form-group-textarea label="Your Response:"></form-group-textarea>
-    <!-- Asssertive/Passive/PassiveAgressive? -->
+    <form-group-select label="Assertive, Passive, Agressive, or P/A?">
+        <option>Assertive</option> 
+        <option>Passive</option> 
+        <option>Agressive</option> 
+        <option>Passive Agressive</option> 
+    </form-group-select>
     <form-group-input type="text" label="How did it turn out?"></form-group-input>
     <form-group-input type="text" label="Feelings Afterward:"></form-group-input>
     <form-group-textarea label="Alternative Response:"></form-group-textarea>
