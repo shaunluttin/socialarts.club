@@ -3,7 +3,9 @@
 @{
     ViewData["Title"] = "Assertiveness Scorecard";
 }
-<h2>@ViewData["Title"]</h2>
+
+<p>Adapted from <citation author="Paterson" year="2000">The assertiveness workbook</citation></p>
+
 
 <form>
     <div class="row">
@@ -20,6 +22,7 @@
     <form-group-textarea label="Person/Situation:"></form-group-textarea>
     <form-group-textarea label="Your Response:"></form-group-textarea>
     <form-group-select label="Assertive, Passive, Agressive, or P/A?">
+        <option></option> 
         <option>Assertive</option> 
         <option>Passive</option> 
         <option>Agressive</option> 
@@ -28,4 +31,7 @@
     <form-group-input type="text" label="How did it turn out?"></form-group-input>
     <form-group-input type="text" label="Feelings Afterward:"></form-group-input>
     <form-group-textarea label="Alternative Response:"></form-group-textarea>
+    <button type="submit" class="btn btn-primary" disabled>Download as Pdf</button>
 </form>
+
+

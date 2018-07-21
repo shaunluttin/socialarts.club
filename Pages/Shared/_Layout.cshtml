@@ -27,7 +27,16 @@
     <vc:navbar></vc:navbar>
 
     <div class="container body-content">
-        @RenderBody()
+        <main class="row">
+            <div class="col-12">
+                <header class="sa-page-header">
+                    <h1>@ViewData["Title"]</h1>
+                </header>
+            </div>
+            <div class="col-12">
+                @RenderBody()
+            </div>
+        </main>
         <hr />
         <footer>
             <p>&copy; 2018 - socialarts.club</p>

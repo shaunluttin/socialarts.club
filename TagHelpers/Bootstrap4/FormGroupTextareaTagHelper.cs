@@ -3,9 +3,7 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace socialarts.club.TagHelpers.Bootstrap4
 {
-    public class FormGroupInputTagHelper : FormGroupTagHelperBase {
-
-        public string Type { get; set; }
+    public class FormGroupTextareaTagHelper : FormGroupTagHelperBase {
 
         public override Task ProcessAsync(TagHelperContext context, TagHelperOutput output) {
 
@@ -15,7 +13,8 @@ namespace socialarts.club.TagHelpers.Bootstrap4
             output.Content.AppendHtml($"<label for='{Id}'>{Label}</label>");
 
             // distinct
-            output.Content.AppendHtml($"<input type='{Type}' class='form-control' id='{Id}' placeholder='{Placeholder}'/>");
+            output.Content.AppendHtml($"<textarea class='form-control' id='{Id}' placeholder='{Placeholder}'>");
+            output.Content.AppendHtml($"</textarea>");
 
             return Task.CompletedTask;
         }
