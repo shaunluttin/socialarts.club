@@ -42,36 +42,37 @@ namespace socialarts.club.ViewComponents
 
             var defaultAreaActions = areaGroups
                 .Where(g => g.Key == null)
-                .SelectMany(g => g);
+                .SelectMany(g => g)
+                .Dump();
 
             var defaultAreaActionsToUse = defaultAreaActions
                 .Where(a => {
                     // TODO Factor out the splitting; 
                     // TODO Perhaps do the splitting only once for better perf.
-                    var title = a.AttributeRouteInfo.Template.Split("/").Last();
+                    var title = a.ViewEnginePath.Split("/").Skip(1).Last();
                     return !ExcludedTitles.Contains(title);
                 });
 
             var nestingGroups = defaultAreaActionsToUse
-                .GroupBy(a => a.AttributeRouteInfo.Template.Split("/").Count());
+                .GroupBy(a => a.ViewEnginePath.Split("/").Skip(1).Count());
 
             var rootItems = nestingGroups
                 .Where(g => g.Key == 1)
                 .SelectMany(g => g)
                 .Select(a => new NavbarItemViewModel
                 {
-                    Title = a.AttributeRouteInfo.Template,
+                    Title = a.ViewEnginePath.TrimStart('/'),
                     Url = a.ViewEnginePath,
-                }).Dump();
+                });
 
             var dropDownItems = nestingGroups
                 .Where(g => g.Key == 2)
                 .SelectMany(g => g)
-                .GroupBy(a => a.AttributeRouteInfo.Template.Split("/").First())
+                .GroupBy(a => a.ViewEnginePath.Split("/").Skip(1).First())
                 .ToDictionary(
                     g => g.Key, 
                     g => g.Select(a => new NavbarItemViewModel { 
-                        Title = a.AttributeRouteInfo.Template.Split("/").Last(),
+                        Title = a.ViewEnginePath.Split("/").Skip(1).Last(),
                         Url = a.ViewEnginePath
                     })
                 );
