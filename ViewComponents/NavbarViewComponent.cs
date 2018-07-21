@@ -9,12 +9,14 @@ using Microsoft.Extensions.Options;
 using socialarts.club.ObjectExtensions;
 using socialarts.club.IEnumerableExtensions;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
+using socialarts.club.ViewComponents.Extensions;
 
 namespace socialarts.club.ViewComponents
 {
     public class NavbarViewComponent : ViewComponent
     {
-        private readonly List<string> ExcludedItems = new List<string> {
+        private readonly List<string> ExcludedTitles = new List<string> {
+            "", 
             "Index", 
             "Error",
             "Privacy",
@@ -44,7 +46,7 @@ namespace socialarts.club.ViewComponents
             var defaultAreaActionsToUse = defaultAreaActions
                 .Where(a => {
                     var title = a.AttributeRouteInfo.Template.Split("/").Last();
-                    return !ExcludedItems.Contains(title);
+                    return !ExcludedTitles.Contains(title);
                 });
 
             var nestingGroups = defaultAreaActionsToUse
@@ -57,7 +59,7 @@ namespace socialarts.club.ViewComponents
                 {
                     Title = a.AttributeRouteInfo.Template,
                     Url = a.ViewEnginePath,
-                });
+                }).Dump();
 
             var dropDownItems = nestingGroups
                 .Where(g => g.Key == 2)
