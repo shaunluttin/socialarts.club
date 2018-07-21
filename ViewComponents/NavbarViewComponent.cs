@@ -8,48 +8,45 @@ using Microsoft.AspNetCore.Razor.Language;
 using Microsoft.Extensions.Options;
 using socialarts.club.ObjectExtensions;
 using socialarts.club.IEnumerableExtensions;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 
 namespace socialarts.club.ViewComponents
 {
     public class NavbarViewComponent : ViewComponent
     {
-        private const string PageDirective = "@page";
+        private readonly IActionDescriptorCollectionProvider _provider;
 
-        // TODO (Shaun) Inject these excluded items and/or use better filters.
-        private readonly List<string> ExcludeList = new List<string> 
+        public NavbarViewComponent(IActionDescriptorCollectionProvider provider)
         {
-            "Index",
-            "Error", 
-            "Privacy", 
-            "_CookieConsentPartial",
-            "_Layout",
-            "_LoginPartial",
-        };
-
-        private readonly RazorProjectFileSystem _razorFileSystem;
-
-        private readonly RazorPagesOptions _pagesOptions;
-
-        public NavbarViewComponent(
-            RazorProjectFileSystem razorFileSystem,
-            IOptions<RazorPagesOptions> pagesOptionsAccessor)
-        {
-            _razorFileSystem = razorFileSystem;
-            _pagesOptions = pagesOptionsAccessor.Value;
+            _provider = provider;
         }
 
-        // See: Mvc\src\Microsoft.AspNetCore.Mvc.RazorPages\Internal\RazorProjectPageRouteModelProvider.cs
-        // See: Razor\src\Microsoft.AspNetCore.Mvc.Razor.Extensions\PageDirective.cs
-        public async Task<IViewComponentResult> InvokeAsync()
+        public IViewComponentResult Invoke()
         {
-            var navbarItems = await _razorFileSystem
-                .EnumerateItems(_pagesOptions.RootDirectory)
-                .WhereAsync(async item => await BelongsInNavbar(item)) 
-                .Select(item => new NavbarItemViewModel
+            // TODO: Delete this developer debug code.
+            foreach (PageActionDescriptor item in _provider.ActionDescriptors.Items)
+            {
+                if (item.AreaName == null)
+                {
+                    System.Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(item, Newtonsoft.Json.Formatting.Indented));
+                }
+            }
+
+            var navbarItems = _provider.ActionDescriptors.Items
+                .Where(item => item is PageActionDescriptor)
+                .Cast<PageActionDescriptor>()
+                .Where(item => item.AreaName == null)
+                .Select(item =>
+                {
+                    var parts = item.ViewEnginePath.Split("/");
+                    return new NavbarItemViewModel
                     {
-                        Url = item.FilePathWithoutExtension,
-                        Title = item.FileName.Replace(item.Extension, "")
-                    });
+                        Url = item.ViewEnginePath,
+
+                        // TODO: Make this a drop down list when there are multiple parts.
+                        Title = string.Join(" > ", parts)
+                    };
+                });
 
             var model = new NavbarViewComponentModel
             {
@@ -57,18 +54,6 @@ namespace socialarts.club.ViewComponents
             };
 
             return View(model);
-        }
-
-        public async Task<bool> BelongsInNavbar(RazorProjectItem item) => 
-            !OnExcludeList(item) && 
-            await HasPageDirective(item);
-
-        public bool OnExcludeList(RazorProjectItem item) =>
-            ExcludeList.Any(x => x == item.FileName.Replace(item.Extension, ""));
-
-        public async Task<bool> HasPageDirective(RazorProjectItem item) {
-            // TODO (Shaun) Determine how to find the @page directive.
-            return await Task.FromResult(true);
         }
     }
 }
