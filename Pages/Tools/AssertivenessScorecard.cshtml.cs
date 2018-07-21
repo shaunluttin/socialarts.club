@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace socialarts.club.Pages.Tools
 {
-    public class RealityQuestionsModel : PageModel
+    public class AssertivenessScorecardModel : PageModel
     {
     }
 }
