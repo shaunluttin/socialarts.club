@@ -12,15 +12,27 @@
     aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
-        @foreach(var item in @Model.NavbarItems)
+        @foreach(var item in @Model.RootNavbarItems)
         {
             <li class="nav-item">
                 <a class="nav-link" href="@item.Url">@item.Title</a>
             </li>
-
-            // TODO (Shaun) Add a drop down list for the Tools directory.
-            // This might be a use case of a tree structue pattern such as Composite.
         }
+        @foreach(var item in @Model.DropDownNavbarItems)
+        {
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                @item.Key
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              @foreach(var subItem in item.Value)
+              {
+                <a class="dropdown-item" href="@subItem.Url">@subItem.Title</a>
+              }
+              </div>
+            </li>
+        }
+
     </ul>
   </div>
 </nav>

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace socialarts.club.ViewComponents
 {
@@ -12,7 +13,10 @@ namespace socialarts.club.ViewComponents
 
     public class NavbarViewComponentModel
     {
-        public IEnumerable<NavbarItemViewModel> NavbarItems { get; set; }
-            = new List<NavbarItemViewModel>();
+        public Dictionary<string, IEnumerable<NavbarItemViewModel>> DropDownNavbarItems 
+            = new Dictionary<string, IEnumerable<NavbarItemViewModel>>();
+
+        public IEnumerable<NavbarItemViewModel> RootNavbarItems =
+            Enumerable.Empty<NavbarItemViewModel>();
     }
 }
