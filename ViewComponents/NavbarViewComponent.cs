@@ -13,6 +13,7 @@ using socialarts.club.ViewComponents.Extensions;
 
 namespace socialarts.club.ViewComponents
 {
+    // TODO Reconsider coupling the navar to the file system.
     public class NavbarViewComponent : ViewComponent
     {
         private readonly List<string> ExcludedTitles = new List<string> {
@@ -45,6 +46,8 @@ namespace socialarts.club.ViewComponents
 
             var defaultAreaActionsToUse = defaultAreaActions
                 .Where(a => {
+                    // TODO Factor out the splitting; 
+                    // TODO Perhaps do the splitting only once for better perf.
                     var title = a.AttributeRouteInfo.Template.Split("/").Last();
                     return !ExcludedTitles.Contains(title);
                 });
