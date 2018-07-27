@@ -20,3 +20,4 @@ $nodeModules = @(
 );
 
 $nodeModules | ForEach-Object { Copy-NodeModule $_ };
+

@@ -1,10 +1,11 @@
 ﻿@page "{referenceId?}"
-@model ContactModel
+@model ReferencesModel
 @{
     ViewData["Title"] = "References";
 }
 
 <ul class="list-unstyled">
-    <li "paterson-2000">Paterson, R. J. (2000). <cite>The assertiveness workbook: How to express your ideas and stand up for yourself at work and in relationships.</cite> Oakland, CA: New Harbinger Publications.</li> 
-    <li "alberti-1995">Alberti, R. E., & Emmons, M. (1995). <cite>Your perfect right.</cite> San Luis Obispo, California: Impact Publishers.</li>
+@foreach(var entry in Model.Entries) {
+    <li id="@entry.Slug">@entry.Authors (@entry.Year). <cite>@entry.Title</cite> @entry.Publisher.</li> 
+}
 </ul>
