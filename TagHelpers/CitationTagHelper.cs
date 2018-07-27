@@ -16,7 +16,14 @@ namespace socialarts.club.TagHelpers
             var childContent = await output.GetChildContentAsync();
             var title = childContent.GetContent();
 
-            output.Content.AppendHtml($"<a href='{ReferencesPath}/{Author}-{Year}'><cite title='{title}'>{title}</cite></a> ({Author}, {Year}).");
+            var relativePath = $"{ReferencesPath}/{Author}-{Year}";
+
+            var citeElement = $"<cite title='{title}'>{title}</cite>";
+            var linkElement = $"<a href='{relativePath}'>{citeElement}</a>";
+            var spanElement = $"<span>({Author}, {Year})</span>";
+            var content = $"{linkElement} {spanElement}";
+
+            output.Content.AppendHtml(content);
         }
     }
 }
