@@ -10,7 +10,10 @@ namespace socialarts.club.TagHelpers.Bootstrap4
             output.TagName = "div";
             output.TagMode = TagMode.StartTagAndEndTag;
             output.Attributes.Add("class", "form-group");
-            output.Content.AppendHtml($"<label for='{Id}'>{Label}</label>");
+
+            if(!string.IsNullOrWhiteSpace(Label)) {
+                output.Content.AppendHtml($"<label for='{Id}'>{Label}</label>");
+            }
 
             // distinct
             output.Content.AppendHtml($"<select class='form-control' id='{Id}'>");
