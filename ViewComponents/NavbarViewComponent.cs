@@ -62,7 +62,7 @@ namespace socialarts.club.ViewComponents
                 .Select(a => new NavbarItemViewModel
                 {
                     Title = a.ViewEnginePath.TrimStart('/'),
-                    Url = a.ViewEnginePath,
+                    Path = a.ViewEnginePath,
                 });
 
             var dropDownItems = nestingGroups
@@ -71,9 +71,10 @@ namespace socialarts.club.ViewComponents
                 .GroupBy(a => a.ViewEnginePath.Split("/").Skip(1).First())
                 .ToDictionary(
                     g => g.Key, 
-                    g => g.Select(a => new NavbarItemViewModel { 
-                        Title = a.ViewEnginePath.Split("/").Skip(1).Last(),
-                        Url = a.ViewEnginePath
+                    g => g.Select(a => new NavbarItemViewModel 
+                    { 
+                        Title = a.ViewEnginePath.Split("/").Last(),
+                        Path = a.ViewEnginePath
                     })
                 );
 

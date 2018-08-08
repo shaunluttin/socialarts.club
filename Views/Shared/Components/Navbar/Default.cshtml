@@ -15,7 +15,7 @@
         @foreach(var item in @Model.RootNavbarItems)
         {
             <li class="nav-item">
-                <a class="nav-link" href="@item.Url">@item.Title</a>
+                <a class="nav-link" href="@item.Path">@item.Title</a>
             </li>
         }
         @foreach(var item in @Model.DropDownNavbarItems)
@@ -27,7 +27,7 @@
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               @foreach(var subItem in item.Value)
               {
-                <a class="dropdown-item" href="@subItem.Url">@subItem.Title</a>
+                <a class="dropdown-item" href="@subItem.Path">@subItem.Title</a>
               }
               </div>
             </li>
