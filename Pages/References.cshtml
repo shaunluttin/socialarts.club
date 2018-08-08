@@ -4,8 +4,12 @@
     ViewData["Title"] = "References";
 }
 
-<ul class="list-unstyled">
+<ul class="list-unstyled sa-list-bibliography">
 @foreach(var entry in Model.Entries) {
-    <li id="@entry.Slug">@entry.Authors (@entry.Year). <cite>@entry.Title</cite> @entry.Publisher.</li> 
+    @if(entry is BibliographyBook book) {
+        <li id="@entry.Slug">@entry.Authors (@entry.Year). <cite>@entry.Title</cite> @book.Publisher.</li> 
+    } else if (entry is BibliographyWebDocument web) {
+        <li id="@entry.Slug">@entry.Authors (@entry.Year). <cite>@entry.Title</cite> Retrieved from <a href="@web.RetrievedFrom">@web.RetrievedFrom</a>.</li> 
+    }
 }
 </ul>

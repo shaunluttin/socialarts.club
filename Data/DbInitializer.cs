@@ -16,14 +16,21 @@ namespace socialarts.club.Data
             if(context.BibliographyEntry.Any())  return;
 
             var entries = new BibliographyEntry[] {
-                new BibliographyEntry {
-                    Title = "The assertiveness workbook: How to express your ideas and stand up for yourself at work and in relationships.",
+                new BibliographyWebDocument {
+                    Title = "Antidepressant Skills at Work: Dealing with mood problems in the workplace",
+                    Authors = "Bilsker, D., Gilbert, M., & Samra, J.",
+                    Year = "2009", 
+                    RetrievedFrom = "http://www.comh.ca/antidepressant-skills/work/workbook/pages/worksheets-01.cfm",
+                    Slug = "bilsker-2009"
+                },
+                new BibliographyBook {
+                    Title = "The assertiveness workbook: How to express your ideas and stand up for yourself at work and in relationships",
                     Authors = "Paterson, R. J.",
                     Year = "2000", 
                     Publisher = "Oakland, CA: New Harbinger Publications",
                     Slug = "paterson-2000"
                 },
-                new BibliographyEntry {
+                new BibliographyBook {
                     Title = "Your Perfect Right",
                     Authors = "Alberti, R. E., & Emmons, M.",
                     Year = "1995", 

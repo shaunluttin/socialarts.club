@@ -13,7 +13,7 @@ namespace socialarts.club.Pages
 
         public ReferencesModel(ApplicationDbContext context)
         {
-            Entries = context.BibliographyEntry.ToList();
+            Entries = context.BibliographyEntry.OrderBy(e => e.Authors).ToList();
         }
     }
 }

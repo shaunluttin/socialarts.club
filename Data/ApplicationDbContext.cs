@@ -10,6 +10,10 @@ namespace socialarts.club.Data
     {
         public DbSet<BibliographyEntry> BibliographyEntry { get; set; }
 
+        public DbSet<BibliographyBook> BibliographyBook { get; set; }
+
+        public DbSet<BibliographyWebDocument> BibliographyWebDocument { get; set; }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {

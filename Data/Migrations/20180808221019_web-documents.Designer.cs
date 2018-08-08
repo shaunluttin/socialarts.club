@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using socialarts.club.Data;
 
 namespace socialarts.club.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180808221019_web-documents")]
+    partial class webdocuments
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -184,8 +186,9 @@ namespace socialarts.club.Data.Migrations
 
                     b.Property<string>("Authors");
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired();
+                    b.Property<string>("Publisher");
+
+                    b.Property<string>("RetrievedFrom");
 
                     b.Property<string>("Section");
 
@@ -198,30 +201,6 @@ namespace socialarts.club.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("BibliographyEntry");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("BibliographyEntry");
-                });
-
-            modelBuilder.Entity("socialarts.club.Data.BibliographyBook", b =>
-                {
-                    b.HasBaseType("socialarts.club.Data.BibliographyEntry");
-
-                    b.Property<string>("Publisher");
-
-                    b.ToTable("BibliographyBook");
-
-                    b.HasDiscriminator().HasValue("BibliographyBook");
-                });
-
-            modelBuilder.Entity("socialarts.club.Data.BibliographyWebDocument", b =>
-                {
-                    b.HasBaseType("socialarts.club.Data.BibliographyEntry");
-
-                    b.Property<string>("RetrievedFrom");
-
-                    b.ToTable("BibliographyWebDocument");
-
-                    b.HasDiscriminator().HasValue("BibliographyWebDocument");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
