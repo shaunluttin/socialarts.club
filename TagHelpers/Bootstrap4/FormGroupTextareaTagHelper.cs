@@ -1,3 +1,4 @@
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
@@ -5,22 +6,13 @@ namespace socialarts.club.TagHelpers.Bootstrap4
 {
     public class FormGroupTextareaTagHelper : FormGroupTagHelperBase {
 
-        public override Task ProcessAsync(TagHelperContext context, TagHelperOutput output) {
+        internal override Task<string> BuildFormControl(TagHelperContext context, TagHelperOutput output)
+        {
+            var result = new StringBuilder();
+            result.Append($"<textarea class='form-control' id='{Id}' placeholder='{Placeholder}'>");
+            result.Append($"</textarea>");
 
-            output.TagName = "div";
-            output.TagMode = TagMode.StartTagAndEndTag;
-            output.Attributes.Add("class", "form-group");
-
-            if(!string.IsNullOrWhiteSpace(Label)) {
-                // TODO consider reusing this conditional label logic
-                output.Content.AppendHtml($"<label for='{Id}'>{Label}</label>");
-            }
-
-            // distinct
-            output.Content.AppendHtml($"<textarea class='form-control' id='{Id}' placeholder='{Placeholder}'>");
-            output.Content.AppendHtml($"</textarea>");
-
-            return Task.CompletedTask;
+            return Task.FromResult(result.ToString());
         }
     }
 }
