@@ -11,3 +11,8 @@ Initital setup:
 * Web Hosting: Azure App Service with continuous deployment from GitHub.
 * Web App: ASP.NET Core MVC with Razor Pages and Bootstrap 4.
 * Version Control: Git and GitHub
+
+Valuable resources: 
+
+* https://html.spec.whatwg.org/dev
+* https://owl.purdue.edu/owl/research_and_citation/apa_style/apa_formatting_and_style_guide/general_format.html
