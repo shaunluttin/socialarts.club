@@ -1,4 +1,8 @@
 
+Wednesday 08 Aug 2018
+
+We could improve the web document citation and reference list to include the sub-section of the work.
+
 Wednesday 01 Aug 2018
 
 A good goal would be to add five forms to /Tools and then to start optimizing/refactoring.
