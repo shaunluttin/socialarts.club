@@ -10,6 +10,10 @@
     padding-bottom:1em;
 }
 
+.body-content > footer {
+    text-align: right;
+}
+
 form {
     margin-top:10px;
     margin-bottom:10px;
