@@ -4,6 +4,7 @@ namespace socialarts.club.Data
     {
         public int Id { get; set; }
 
+        // TODO (maybe): Break Title into two properties: Title & Subtitle
         public string Title { get; set; }
 
         // optional chapter/section

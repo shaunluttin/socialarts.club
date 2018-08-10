@@ -38,7 +38,7 @@ namespace socialarts.club.Data
                     Slug = "alberti-1995",
                 },
                 new BibliographyBook {
-                    Title = "The Anger Control Workbook",
+                    Title = "The Anger Control Workbook: Simple, innovative techniques for managing anger and developing healthier ways of relating",
                     Authors = "McKay, M. & Rogers, R.",
                     Year = 2000, 
                     Publisher = "Oakland, CA: New Harbinger Publications",
