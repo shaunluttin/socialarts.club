@@ -47,7 +47,7 @@ namespace socialarts.club.Data
             };
 
             foreach(var entry in entries) {
-                // TODO Why not use AddRange?
+                // TODO (question): Why not use AddRange?
                 context.BibliographyEntry.Add(entry);
             }
 
