@@ -37,6 +37,13 @@ namespace socialarts.club.Data
                     Publisher = "San Luis Obispo, California: Impact Publishers",
                     Slug = "alberti-1995",
                 },
+                new BibliographyBook {
+                    Title = "The Anger Control Workbook",
+                    Authors = "McKay, M. & Rogers, R.",
+                    Year = "2000", 
+                    Publisher = "Oakland, CA: New Harbinger Publications",
+                    Slug = "mckay-2000",
+                },
             };
 
             foreach(var entry in entries) {
