@@ -9,10 +9,10 @@ namespace socialarts.club.Data
         // optional chapter/section
         public string Section { get; set; }
 
-        // TODO: Break Author into a List<string>
+        // TODO (maybe): Break Author into a List<string>
         public string Authors { get; set; }
 
-        public string Year { get; set; }
+        public int Year { get; set; }
 
         // for anchor tags
         public string Slug { get; set; }
@@ -25,6 +25,7 @@ namespace socialarts.club.Data
 
     public class BibliographyBook : BibliographyEntry 
     {
+        // TODO (maybe): Break Publisher into two properties: Location & Publisher
         public string Publisher { get; set; }
     }
 }
