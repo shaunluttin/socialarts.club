@@ -1,6 +1,6 @@
 namespace socialarts.club.ViewComponents
 {
-    public class NavbarItemViewModel
+    public class NavItemViewModel
     {
         public string Path { get; set; }
 

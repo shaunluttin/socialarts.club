@@ -13,8 +13,8 @@ using socialarts.club.ViewComponents.Extensions;
 
 namespace socialarts.club.ViewComponents
 {
-    // TODO Reconsider coupling the navar to the file system.
-    public class NavbarViewComponent : ViewComponent
+    // TODO Reconsider coupling the nabar to the file system.
+    public class RazorPageNavbarNavViewComponent : ViewComponent
     {
         private readonly List<string> ExcludedTitles = new List<string> {
             "", 
@@ -25,7 +25,7 @@ namespace socialarts.club.ViewComponents
 
         private readonly IActionDescriptorCollectionProvider _provider;
 
-        public NavbarViewComponent(IActionDescriptorCollectionProvider provider)
+        public RazorPageNavbarNavViewComponent(IActionDescriptorCollectionProvider provider)
         {
             _provider = provider;
         }
@@ -59,7 +59,7 @@ namespace socialarts.club.ViewComponents
             var rootItems = nestingGroups
                 .Where(g => g.Key == 1)
                 .SelectMany(g => g)
-                .Select(a => new NavbarItemViewModel
+                .Select(a => new NavItemViewModel
                 {
                     Title = a.ViewEnginePath.TrimStart('/'),
                     Path = a.ViewEnginePath,
@@ -71,17 +71,17 @@ namespace socialarts.club.ViewComponents
                 .GroupBy(a => a.ViewEnginePath.Split("/").Skip(1).First())
                 .ToDictionary(
                     g => g.Key, 
-                    g => g.Select(a => new NavbarItemViewModel 
+                    g => g.Select(a => new NavItemViewModel 
                     { 
                         Title = a.ViewEnginePath.Split("/").Last(),
                         Path = a.ViewEnginePath
                     })
                 );
 
-            var model = new NavbarViewComponentModel
+            var model = new RazorPageNavbarNavViewComponentModel
             {
-                RootNavbarItems = rootItems,
-                DropDownNavbarItems = dropDownItems
+                RootNavItems = rootItems,
+                DropDownNavItems = dropDownItems
             };
 
             return View(model);
