@@ -14,7 +14,7 @@ using socialarts.club.ViewComponents.Extensions;
 namespace socialarts.club.ViewComponents
 {
     // TODO Reconsider coupling the nabar to the file system.
-    public class RazorPageNavbarNavViewComponent : ViewComponent
+    public class RazorPageNavItemsViewComponent : ViewComponent
     {
         private readonly List<string> ExcludedTitles = new List<string> {
             "", 
@@ -25,7 +25,7 @@ namespace socialarts.club.ViewComponents
 
         private readonly IActionDescriptorCollectionProvider _provider;
 
-        public RazorPageNavbarNavViewComponent(IActionDescriptorCollectionProvider provider)
+        public RazorPageNavItemsViewComponent(IActionDescriptorCollectionProvider provider)
         {
             _provider = provider;
         }
@@ -78,7 +78,7 @@ namespace socialarts.club.ViewComponents
                     })
                 );
 
-            var model = new RazorPageNavbarNavViewComponentModel
+            var model = new RazorPageNavItemsViewComponentModel
             {
                 RootNavItems = rootItems,
                 DropDownNavItems = dropDownItems

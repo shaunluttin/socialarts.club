@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace socialarts.club.ViewComponents
 {
-    public class RazorPageNavbarNavViewComponentModel
+    public class RazorPageNavItemsViewComponentModel
     {
         public Dictionary<string, IEnumerable<NavItemViewModel>> DropDownNavItems 
             = new Dictionary<string, IEnumerable<NavItemViewModel>>();
