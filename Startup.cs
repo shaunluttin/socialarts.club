@@ -40,7 +40,15 @@ namespace socialarts.club
                 options.UseSqlite(
                     Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddDefaultIdentity<IdentityUser>()
+            services
+                // AddDefaultIdentity encapsulates the following:
+                //      .AddAuthentication
+                //      .AddIdentityCookies
+                //      .AddIdentityCore
+                //      .AddDefaultUI
+                //      .AddDefaultTokenProviders
+                // See https://github.com/aspnet/Identity for details.
+                .AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
