@@ -10,16 +10,16 @@
     padding-bottom:1em;
 }
 
-.body-content > footer {
-    text-align: right;
-}
-
-form {
+.sa-form-tools {
     margin-top:10px;
     margin-bottom:10px;
     padding:10px 20px;
     border:4px solid #f8f9fa;
     border-radius: 4px;
+}
+
+.body-content > footer {
+    text-align: right;
 }
 
 legend small {
