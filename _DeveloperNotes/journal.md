@@ -1,6 +1,8 @@
 
 Saturday 11 August 2018
 
+We will soon need to determine how to do continuous deployment without clobbering the database each time.
+
 It might be worth removing the bootstrap classes from the HTML and instead using SASS overrides.
 
 It might be worth introducing a <nav-item> tag helper. That would lead to more consise *.cshtml pages.
