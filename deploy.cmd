@@ -68,7 +68,7 @@ echo Handling ASP.NET Core Web Application deployment.
 
 :: 0. Custom scripts to run before `dotnet` commands.
 powershell ./build.ps1
-powershell ./seedDatabase.ps1
+powershell ./updateDatabase.ps1
 
 :: 1. Restore nuget packages
 call :ExecuteCmd dotnet restore "%DEPLOYMENT_SOURCE%\socialarts.club.csproj"

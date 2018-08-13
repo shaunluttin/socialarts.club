@@ -18,5 +18,12 @@ namespace socialarts.club.Data
             : base(options)
         {
         }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+
+            // SQLite does not support AlterTable operations. :-(
+        }
     }
 }
