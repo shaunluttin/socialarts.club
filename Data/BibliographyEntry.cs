@@ -13,7 +13,9 @@ namespace socialarts.club.Data
         // TODO (maybe): Break Author into a List<string>
         public string Authors { get; set; }
 
-        public int Year { get; set; }
+        // SQLite does not support the AlterColumnOperation,
+        // so altering this to an <int> requires a table rebuild approach.
+        public string Year { get; set; }
 
         // for anchor tags
         public string Slug { get; set; }

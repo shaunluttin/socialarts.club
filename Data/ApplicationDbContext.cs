@@ -23,7 +23,7 @@ namespace socialarts.club.Data
         {
             base.OnModelCreating(builder);
 
-            // SQLite does not support AlterTable operations. :-(
+            // SQLite does not support the AlterColumnOperation. :-(
         }
     }
 }
