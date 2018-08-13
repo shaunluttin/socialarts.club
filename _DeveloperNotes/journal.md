@@ -1,4 +1,8 @@
 
+Monday 13 August 2018
+
+Sqlite does not support the AlterColumnOperation. This is going to make Entity Framework difficult, because it will involve rebuilding changed tables.
+
 Saturday 11 August 2018
 
 We will soon need to determine how to do continuous deployment without clobbering the database each time.

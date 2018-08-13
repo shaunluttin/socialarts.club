@@ -66,10 +66,6 @@ SET MSBUILD_PATH=%ProgramFiles(x86)%\MSBuild\14.0\Bin\MSBuild.exe
 
 echo Handling ASP.NET Core Web Application deployment.
 
-:: 0. Custom scripts to run before `dotnet` commands.
-powershell ./build.ps1
-powershell ./updateDatabase.ps1
-
 :: 1. Restore nuget packages
 call :ExecuteCmd dotnet restore "%DEPLOYMENT_SOURCE%\socialarts.club.csproj"
 IF !ERRORLEVEL! NEQ 0 goto error
