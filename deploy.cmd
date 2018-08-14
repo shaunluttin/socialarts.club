@@ -75,6 +75,10 @@ echo Handling ASP.NET Core Web Application deployment.
 call :ExecuteCmd dotnet restore "%DEPLOYMENT_SOURCE%\socialarts.club.csproj"
 IF !ERRORLEVEL! NEQ 0 goto error
 
+:: Update Database
+call xcopy "%DEPLOYMENT_TARGET%\app.db" /y
+dotnet ef update database
+
 :: 2. Build and publish
 call :ExecuteCmd dotnet publish "%DEPLOYMENT_SOURCE%\socialarts.club.csproj" --output "%DEPLOYMENT_TEMP%" --configuration Release
 IF !ERRORLEVEL! NEQ 0 goto error
