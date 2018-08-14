@@ -69,6 +69,8 @@ echo Current directory %cd%
 echo Handling Web Pack deployment
 
 call npm install
+IF !ERRORLEVEL! NEQ 0 goto error
+
 call npm run release
 IF !ERRORLEVEL! NEQ 0 goto error
 
@@ -80,6 +82,8 @@ IF !ERRORLEVEL! NEQ 0 goto error
 
 :: Update Database
 call xcopy "%DEPLOYMENT_TARGET%\app.db" /y
+IF !ERRORLEVEL! NEQ 0 goto error
+
 call dotnet ef database update
 IF !ERRORLEVEL! NEQ 0 goto error
 
