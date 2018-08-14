@@ -1,7 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "webpack": "webpack --config webpack.config.js"
+    "build": "webpack --config webpack.config.js --mode=development --watch",
+    "release": "webpack --config webpack.config.js --mode=production"
   },
   "dependencies": {
     "bootstrap": "^4.1.3",

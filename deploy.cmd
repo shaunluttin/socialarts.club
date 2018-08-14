@@ -67,7 +67,7 @@ SET MSBUILD_PATH=%ProgramFiles(x86)%\MSBuild\14.0\Bin\MSBuild.exe
 echo Handling Web Pack deployment
 
 call npm install
-call npm run webpack
+call npm run release
 
 echo Handling ASP.NET Core Web Application deployment.
 
