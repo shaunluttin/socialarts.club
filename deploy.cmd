@@ -23,7 +23,7 @@ setlocal enabledelayedexpansion
 SET ARTIFACTS=%~dp0%..\artifacts
 
 IF NOT DEFINED DEPLOYMENT_SOURCE (
-  SET DEPLOYMENT_SOURCE=%~dp0%.\src
+  SET DEPLOYMENT_SOURCE=%~dp0%\src
 )
 
 IF NOT DEFINED DEPLOYMENT_TARGET (
@@ -64,7 +64,9 @@ SET MSBUILD_PATH=%ProgramFiles(x86)%\MSBuild\14.0\Bin\MSBuild.exe
 :: Deployment
 :: ----------
 
-cd %DEPLOYMENT_SOURCE%
+pushd %DEPLOYMENT_SOURCE%
+
+echo Current directory %cd%
 
 echo Handling Web Pack deployment
 
