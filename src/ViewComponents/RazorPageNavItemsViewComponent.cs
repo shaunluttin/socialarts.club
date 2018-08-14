@@ -42,8 +42,7 @@ namespace socialarts.club.ViewComponents
 
             var defaultAreaActions = areaGroups
                 .Where(g => g.Key == null)
-                .SelectMany(g => g)
-                .Dump();
+                .SelectMany(g => g);
 
             var defaultAreaActionsToUse = defaultAreaActions
                 .Where(a => {
