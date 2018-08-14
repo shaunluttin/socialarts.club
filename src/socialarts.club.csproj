@@ -15,4 +15,16 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.0" PrivateAssets="All" />
   </ItemGroup>
 
+  <Target Name="NodeJs_RunDebugScripts" AfterTargets="Build" Condition=" '$(Configuration)' == 'Debug' ">
+    <Message Importance="High" Text="Running NodeJS $(Configuration) scripts..."></Message>
+    <Exec Command="npm install"></Exec>
+    <Exec Command="npm run build"></Exec>
+  </Target>
+
+  <Target Name="NodeJs_RunReleaseScripts" AfterTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
+    <Message Importance="High" Text="Running NodeJS $(Configuration) scripts..."></Message>
+    <Exec Command="npm install"></Exec>
+    <Exec Command="npm run release"></Exec>
+  </Target>
+
 </Project>

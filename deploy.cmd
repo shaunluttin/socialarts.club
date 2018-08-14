@@ -66,14 +66,6 @@ pushd %DEPLOYMENT_SOURCE%
 
 echo Current directory %cd%
 
-echo Handling Web Pack deployment
-
-call npm install
-IF !ERRORLEVEL! NEQ 0 goto error
-
-call npm run release
-IF !ERRORLEVEL! NEQ 0 goto error
-
 echo Handling ASP.NET Core Web Application deployment.
 
 :: 1. Restore nuget packages

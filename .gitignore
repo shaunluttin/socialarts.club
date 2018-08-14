@@ -2,6 +2,6 @@ obj/
 bin/
 node_modules/
 yarn-error.log
-wwwroot/lib/
+
 app.db
-wwwroot/bundles/
+**/wwwroot/*.bundle.js

@@ -2,13 +2,13 @@ const path = require('path');
 
 module.exports = {
     entry: {
-        early: './wwwroot/early.js',
-        late: './wwwroot/late.js',
+        early: './wwwroot-src/webpack/early.js',
+        late: './wwwroot-src/webpack/late.js',
     },
     output: {
         // See https://webpack.js.org/guides/code-splitting/ for details on code-splitting.
         filename: '[name].bundle.js',
-        path: path.resolve(__dirname, './wwwroot/bundles'),
+        path: path.resolve(__dirname, './wwwroot'),
     },
     module: {
         rules: [
