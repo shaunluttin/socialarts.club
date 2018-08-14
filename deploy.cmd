@@ -64,7 +64,7 @@ SET MSBUILD_PATH=%ProgramFiles(x86)%\MSBuild\14.0\Bin\MSBuild.exe
 :: Deployment
 :: ----------
 
-pushd %DEPLOYMENT_SOURCE%
+cd %DEPLOYMENT_SOURCE%
 
 echo Handling Web Pack deployment
 
