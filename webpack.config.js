@@ -8,7 +8,7 @@ module.exports = {
     output: {
         // See https://webpack.js.org/guides/code-splitting/ for details on code-splitting.
         filename: '[name].bundle.js',
-        path: path.resolve(__dirname, './wwwroot'),
+        path: path.resolve(__dirname, './wwwroot/bundles'),
     },
     module: {
         rules: [
