@@ -4,27 +4,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - socialarts.club</title>
-
-    <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
-    </environment>
-    <environment exclude="Development">
-        <link 
-            rel="stylesheet" 
-            href="https://ajax.aspnetcdn.com/ajax/bootstrap/4.1.1/css/bootstrap.min.css"
-            asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-            asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link 
-            rel="stylesheet" 
-            href="~/css/site.css" 
-            asp-append-version="true" />
-    </environment>
 </head>
 <body>
     <partial name="_CookieConsentPartial" />
     <partial name="_Navbar" />
-
     <div class="container body-content">
         <main class="row">
             <div class="col-12">
@@ -40,30 +23,7 @@
             Open source on <a href="https://github.com/shaunluttin/socialarts.club">GitHub</a>.
         </footer>
     </div>
-
-    <environment include="Development">
-        <script src="~/lib/jquery/dist/jquery.js"></script>
-        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="~/js/site.js" asp-append-version="true"></script>
-    </environment>
-    <environment exclude="Development">
-        <script 
-            src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
-            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
-            crossorigin="anonymous"></script>
-        <script 
-            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" 
-            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" 
-            crossorigin="anonymous"></script>
-        <script 
-            src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" 
-            integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" 
-            crossorigin="anonymous"></script>
-        <script 
-            src="~/js/site.min.js" 
-            asp-append-version="true"></script>
-    </environment>
-
+    <script src="~/bundle.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>
