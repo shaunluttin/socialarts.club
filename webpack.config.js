@@ -1,10 +1,14 @@
 const path = require('path');
 
 module.exports = {
-    entry: './wwwroot/index.js',
+    entry: {
+        early: './wwwroot/early.js',
+        late: './wwwroot/late.js',
+    },
     output: {
+        // See https://webpack.js.org/guides/code-splitting/ for details on code-splitting.
+        filename: '[name].bundle.js',
         path: path.resolve(__dirname, './wwwroot'),
-        filename: 'bundle.js'
     },
     module: {
         rules: [
