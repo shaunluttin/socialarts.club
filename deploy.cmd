@@ -23,7 +23,7 @@ setlocal enabledelayedexpansion
 SET ARTIFACTS=%~dp0%..\artifacts
 
 IF NOT DEFINED DEPLOYMENT_SOURCE (
-  SET DEPLOYMENT_SOURCE=%~dp0%.
+  SET DEPLOYMENT_SOURCE=%~dp0%.\src
 )
 
 IF NOT DEFINED DEPLOYMENT_TARGET (
@@ -64,28 +64,34 @@ SET MSBUILD_PATH=%ProgramFiles(x86)%\MSBuild\14.0\Bin\MSBuild.exe
 :: Deployment
 :: ----------
 
+pushd %DEPLOYMENT_SOURCE%
+
 echo Handling Web Pack deployment
 
 call npm install
 call npm run release
+IF !ERRORLEVEL! NEQ 0 goto error
 
 echo Handling ASP.NET Core Web Application deployment.
 
 :: 1. Restore nuget packages
-call :ExecuteCmd dotnet restore "%DEPLOYMENT_SOURCE%\socialarts.club.csproj"
+call :ExecuteCmd dotnet restore socialarts.club.csproj"
 IF !ERRORLEVEL! NEQ 0 goto error
 
 :: Update Database
 call xcopy "%DEPLOYMENT_TARGET%\app.db" /y
-dotnet ef update database
+call dotnet ef database update
+IF !ERRORLEVEL! NEQ 0 goto error
 
 :: 2. Build and publish
-call :ExecuteCmd dotnet publish "%DEPLOYMENT_SOURCE%\socialarts.club.csproj" --output "%DEPLOYMENT_TEMP%" --configuration Release
+call :ExecuteCmd dotnet publish "socialarts.club.csproj" --output "%DEPLOYMENT_TEMP%" --configuration Release
 IF !ERRORLEVEL! NEQ 0 goto error
 
 :: 3. KuduSync
 call :ExecuteCmd "%KUDU_SYNC_CMD%" -v 50 -f "%DEPLOYMENT_TEMP%" -t "%DEPLOYMENT_TARGET%" -n "%NEXT_MANIFEST_PATH%" -p "%PREVIOUS_MANIFEST_PATH%" -i ".git;.hg;.deployment;deploy.cmd"
 IF !ERRORLEVEL! NEQ 0 goto error
+
+popd
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 goto end
