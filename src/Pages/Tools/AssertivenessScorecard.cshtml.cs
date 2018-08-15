@@ -11,22 +11,12 @@ using socialarts.club.ViewComponents.Extensions;
 
 namespace socialarts.club.Pages.Tools
 {
-    [BindProperties]
     public class AssertivenessScorecardModel : PageModel
     {
         private readonly ApplicationDbContext db;
 
-        public string Date { get; set; }
-
-        public string Time { get; set; }
-
-        public string Place { get; set; }
-
-        public string PersonOrSituation { get; set; }
-
-        public string YourResponse { get; set; }
-
-        public string YourAssessment { get; set; }
+        [BindProperty]
+        public AssertivenessScorecard Form { get; set; }
 
         public List<SelectListItem> AssessmentOptions { get; set; }
             = new List<SelectListItem>
@@ -37,28 +27,28 @@ namespace socialarts.club.Pages.Tools
                 new SelectListItem("Passive/Aggressive", "p/a"),
             };
 
-        public string Outcome { get; set; }
+        public bool Disabled { get; set; }
 
-        public string FeelingsAfter { get; set; }
-
-        public string AlternativeResponse { get; set; }
-
-        public AssertivenessScorecardModel(ApplicationDbContext db) {
+        public AssertivenessScorecardModel(ApplicationDbContext db)
+        {
             this.db = db;
+        }
+
+        public async Task OnGetAsync(int id = 0)
+        {
+            if (id <= 0) return;
+
+            var doc = await db.ToolsDocument.FindAsync(id);
+            Form = JsonConvert.DeserializeObject<AssertivenessScorecard>(doc.Json);
+            Disabled = true;
         }
 
         public async Task<IActionResult> OnPostAsync()
         {
-            var dictionary = ModelState.ToDictionary(
-                item => item.Key, 
-                item => item.Value.RawValue.ToString());
-
-            var json = JsonConvert.SerializeObject(dictionary);
-
-            var doc = new ToolsDocument 
+            var doc = new ToolsDocument
             {
-                Name = nameof(AssertivenessScorecardModel), 
-                Json = json,
+                Name = nameof(AssertivenessScorecardModel),
+                Json = JsonConvert.SerializeObject(Form),
             };
 
             // TODO (security): Add the current user as the document's owner.
