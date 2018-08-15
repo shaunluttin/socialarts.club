@@ -4,9 +4,12 @@ using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace socialarts.club.TagHelpers.Bootstrap4
 {
+    // TODO: Use inheritance or composition to leverage the ASP.NET Core Form tag helpers.
+    // input
+    // select
+    // textarea
     public abstract class FormGroupTagHelperBase : TagHelper
     {
-
         public string Id { get; set; } = Guid.NewGuid().ToString();
 
         public string Placeholder { get; set; }
@@ -26,7 +29,9 @@ namespace socialarts.club.TagHelpers.Bootstrap4
                 output.Content.AppendHtml($"<label for='{Id}'>{Label}</label>");
             }
 
+            // TODO: Use the HtmlContentBuilder instead of a string.
             var formControl = await BuildFormControl(context, output);
+
             if (Autofocus)
             {
                 formControl = InsertAutofocusAttribute(formControl);
@@ -35,10 +40,12 @@ namespace socialarts.club.TagHelpers.Bootstrap4
             output.Content.AppendHtml(formControl);
         }
 
-        private string InsertAutofocusAttribute(string formControl)
-        {
+        private string InsertAutofocusAttribute(string formControl) => 
+            InsertAttribute(formControl, "autofocus");
+
+        private string InsertAttribute(string formControl, string attribute) {
             var index = formControl.IndexOf(' ');
-            return formControl.Insert(index, " autofocus");
+            return formControl.Insert(index, $" {attribute}");
         }
 
         internal abstract Task<string> BuildFormControl(TagHelperContext context, TagHelperOutput output);
