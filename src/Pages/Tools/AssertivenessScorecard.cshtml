@@ -7,10 +7,9 @@
 <p>Adapted from <citation author="Paterson" year="2000">The assertiveness workbook</citation>.</p>
 
 <form class="sa-form-tools" method="POST">
-    <input asp-for="Date" type="datetime" />
     <div class="row">
         <div class="col">
-            <form-group-input type="datetime" label="Date:" autofocus />
+            <form-group-input type="datetime" label="Date:" asp-for="Date" autofocus />
         </div>
         <div class="col">
             <form-group-input type="text" label="Time:"/>

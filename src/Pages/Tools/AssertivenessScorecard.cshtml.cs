@@ -15,8 +15,6 @@ namespace socialarts.club.Pages.Tools
 
         public async Task<IActionResult> OnPostAsync() 
         {
-            Date.Dump();
-
             await Task.CompletedTask;
 
             // Post/Redirect/Get to avoid multiple form submission
