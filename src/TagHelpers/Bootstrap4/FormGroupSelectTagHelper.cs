@@ -1,22 +1,32 @@
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.TagHelpers;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace socialarts.club.TagHelpers.Bootstrap4
 {
-    public class FormGroupSelectTagHelper : FormGroupTagHelperBase {
+    public class FormGroupSelectTagHelper : SelectTagHelper
+    {
+        private readonly BootstrapTagHelperService bootstrap;
 
-        internal override async Task<string> BuildFormControl(TagHelperContext context, TagHelperOutput output)
+        public FormGroupSelectTagHelper(
+            BootstrapTagHelperService bootstrap,
+            IHtmlGenerator generator) : base(generator)
         {
-            var childContent = await output.GetChildContentAsync();
-            var innerHtml = childContent.GetContent();
+            this.bootstrap = bootstrap;
+        }
 
-            var result = new StringBuilder();
-            result.Append($"<select class='form-control' id='{Id}'>");
-            result.Append(innerHtml);
-            result.Append($"</select>");
-            
-            return result.ToString();
+        public override void Process(TagHelperContext context, TagHelperOutput output)
+        {
+            output.TagName = "select";
+
+            if (context.AllAttributes.ContainsName("asp-for"))
+            {
+                base.Process(context, output);
+            }
+
+            bootstrap.SurroundWithFormGroup(context, output);
         }
     }
 }
