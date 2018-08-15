@@ -9,27 +9,28 @@
 <form class="sa-form-tools" method="POST">
     <div class="row">
         <div class="col">
-            <form-group-input type="datetime" label="Date:" asp-for="Date" autofocus />
+            <!-- Use text here to maintain a colloquial, casual feel. -->
+            <form-group-input type="text" label="Date:" asp-for="Date" autofocus />
         </div>
         <div class="col">
-            <form-group-input type="text" label="Time:"/>
+            <form-group-input type="text" label="Time:" asp-for="Time" />
         </div>
         <div class="col">
-            <form-group-input type="text" label="Place:"/>
+            <form-group-input type="text" label="Place:" asp-for="Place" />
         </div>
     </div>
-    <form-group-textarea label="Person/Situation:"/>
-    <form-group-textarea label="Your Response:"/>
-    <form-group-select label="Assertive, Passive, Agressive, or P/A?">
+    <form-group-textarea label="Person/Situation:" asp-for="PersonOrSituation" />
+    <form-group-textarea label="Your Response:" asp-for="YourResponse" />
+    <form-group-select label="Assertive, Passive, Agressive, or P/A?" asp-for="YourAssessment" >
         <option></option> 
         <option>Assertive</option> 
         <option>Passive</option> 
         <option>Agressive</option> 
         <option>Passive Agressive</option> 
     </form-group-select>
-    <form-group-input type="text" label="How did it turn out?"/>
-    <form-group-input type="text" label="Feelings Afterward:"/>
-    <form-group-textarea label="Alternative Response:"/>
+    <form-group-input type="text" label="How did it turn out?" asp-for="Outcome" />
+    <form-group-input type="text" label="Feelings Afterward:" asp-for="FeelingsAfter" />
+    <form-group-textarea label="Alternative Response:" asp-for="AlternativeResponse" />
     <button type="submit" class="btn btn-primary">Save</button>
 </form>
 
