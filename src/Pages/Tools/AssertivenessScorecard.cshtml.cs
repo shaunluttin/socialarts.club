@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Newtonsoft.Json;
+using socialarts.club.Data;
 using socialarts.club.ViewComponents.Extensions;
 
 namespace socialarts.club.Pages.Tools
@@ -12,6 +14,8 @@ namespace socialarts.club.Pages.Tools
     [BindProperties]
     public class AssertivenessScorecardModel : PageModel
     {
+        private readonly ApplicationDbContext db;
+
         public string Date { get; set; }
 
         public string Time { get; set; }
@@ -39,13 +43,30 @@ namespace socialarts.club.Pages.Tools
 
         public string AlternativeResponse { get; set; }
 
+        public AssertivenessScorecardModel(ApplicationDbContext db) {
+            this.db = db;
+        }
+
         public async Task<IActionResult> OnPostAsync()
         {
-            await Task.CompletedTask;
-            HttpContext.Request.Form.Dump();
+            var dictionary = ModelState.ToDictionary(
+                item => item.Key, 
+                item => item.Value.RawValue.ToString());
+
+            var json = JsonConvert.SerializeObject(dictionary);
+
+            var doc = new ToolsDocument 
+            {
+                Name = nameof(AssertivenessScorecardModel), 
+                Json = json,
+            };
+
+            // TODO (security): Add the current user as the document's owner.
+            var result = db.ToolsDocument.Add(doc);
+            await db.SaveChangesAsync();
 
             // Post/Redirect/Get to avoid multiple form submission
-            return RedirectToPage(HttpContext.Request.Path);
+            return RedirectToPage(HttpContext.Request.Path, new { doc.Id });
         }
     }
 }

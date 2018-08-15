@@ -14,6 +14,8 @@ namespace socialarts.club.Data
 
         public DbSet<BibliographyWebDocument> BibliographyWebDocument { get; set; }
 
+        public DbSet<ToolsDocument> ToolsDocument { get; set; }
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
