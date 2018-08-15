@@ -21,12 +21,8 @@
     </div>
     <form-group-textarea label="Person/Situation:" asp-for="PersonOrSituation" />
     <form-group-textarea label="Your Response:" asp-for="YourResponse" />
-    <form-group-select label="Assertive, Passive, Agressive, or P/A?" asp-for="YourAssessment" >
-        <option></option> 
-        <option>Assertive</option> 
-        <option>Passive</option> 
-        <option>Agressive</option> 
-        <option>Passive Agressive</option> 
+    <form-group-select label="Assertive, Passive, Agressive, or P/A?" asp-for="YourAssessment" asp-items="Model.AssessmentOptions" >
+        <option value="">Select One</option>
     </form-group-select>
     <form-group-input type="text" label="How did it turn out?" asp-for="Outcome" />
     <form-group-input type="text" label="Feelings Afterward:" asp-for="FeelingsAfter" />
