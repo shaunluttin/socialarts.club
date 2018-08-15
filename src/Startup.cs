@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using socialarts.club.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using socialarts.club.TagHelpers.Bootstrap4;
 
 namespace socialarts.club
 {
@@ -52,6 +53,8 @@ namespace socialarts.club
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+
+            services.AddSingleton<BootstrapTagHelperService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

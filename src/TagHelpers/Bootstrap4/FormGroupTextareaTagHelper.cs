@@ -1,18 +1,33 @@
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.TagHelpers;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace socialarts.club.TagHelpers.Bootstrap4
 {
-    public class FormGroupTextareaTagHelper : FormGroupTagHelperBase {
+    public class FormGroupTextareaTagHelper : TextAreaTagHelper
+    {
+        private readonly BootstrapTagHelperService bootstrap;
 
-        internal override Task<string> BuildFormControl(TagHelperContext context, TagHelperOutput output)
+        public FormGroupTextareaTagHelper(
+            BootstrapTagHelperService bootstrap,
+            IHtmlGenerator generator) : base(generator)
         {
-            var result = new StringBuilder();
-            result.Append($"<textarea class='form-control' id='{Id}' placeholder='{Placeholder}'>");
-            result.Append($"</textarea>");
+            this.bootstrap = bootstrap;
+        }
 
-            return Task.FromResult(result.ToString());
+        public override void Process(TagHelperContext context, TagHelperOutput output)
+        {
+            output.TagName = "textarea";
+            output.TagMode = TagMode.StartTagAndEndTag;
+
+            if (context.AllAttributes.ContainsName("asp-for"))
+            {
+                base.Process(context, output);
+            }
+
+            bootstrap.SurroundWithFormGroup(context, output);
         }
     }
 }
