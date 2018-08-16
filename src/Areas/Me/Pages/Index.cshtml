@@ -1,0 +1,17 @@
+﻿@page
+@model IndexModel
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    var userName = UserManager.GetUserName(User);
+    ViewData["Title"] = userName;
+}
+
+<!-- TODO Use React to create a component that accepts JSON! -->
+@foreach(var group in Model.ToolsDocuments) {
+    <p>@group.Key (@group.Value.Count())</p>
+
+    @foreach(var json in group.Value) {
+        <p>@json</p>
+    }
+}
