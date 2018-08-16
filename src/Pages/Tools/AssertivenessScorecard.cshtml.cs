@@ -15,6 +15,7 @@ namespace socialarts.club.Pages.Tools
     public class AssertivenessScorecardModel : PageModel
     {
         private readonly ApplicationDbContext db;
+
         private readonly UserManager<IdentityUser> userManager;
 
         [BindProperty]
@@ -59,9 +60,12 @@ namespace socialarts.club.Pages.Tools
 
         public async Task<IActionResult> OnPostAsync()
         {
+            var currentUserId = userManager.GetUserId(User);
+
             var doc = new ToolsDocument
             {
                 Name = nameof(AssertivenessScorecardModel),
+                OwnerId = currentUserId,
                 Json = JsonConvert.SerializeObject(Form),
             };
 
