@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -14,6 +15,7 @@ namespace socialarts.club.Pages.Tools
     public class AssertivenessScorecardModel : PageModel
     {
         private readonly ApplicationDbContext db;
+        private readonly UserManager<IdentityUser> userManager;
 
         [BindProperty]
         public AssertivenessScorecard Form { get; set; }
@@ -29,16 +31,28 @@ namespace socialarts.club.Pages.Tools
 
         public bool Disabled { get; set; }
 
-        public AssertivenessScorecardModel(ApplicationDbContext db)
+        public AssertivenessScorecardModel(
+            ApplicationDbContext db,
+            UserManager<IdentityUser> userManager)
         {
             this.db = db;
+            this.userManager = userManager;
         }
 
         public async Task OnGetAsync(int id = 0)
         {
             if (id <= 0) return;
 
+            var currentUserId = userManager.GetUserId(User);
+
             var doc = await db.ToolsDocument.FindAsync(id);
+
+            if (doc == null) {
+                // return 404 not found (or other appropriate status).
+            } else if (doc.OwnerId != currentUserId) {
+                // return 403 forbidden (or other appropriate status).
+            }
+
             Form = JsonConvert.DeserializeObject<AssertivenessScorecard>(doc.Json);
             Disabled = true;
         }
