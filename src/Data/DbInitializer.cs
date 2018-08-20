@@ -14,6 +14,7 @@ namespace socialarts.club.Data
 
         public static void AddBibliographEntries(ApplicationDbContext context)
         {
+            // TODO (nice-to-have) consider de-duplicating the duplicate publisher data.
             var entries = new BibliographyEntry[] {
                 new BibliographyWebDocument {
                     Title = "Antidepressant Skills at Work: Dealing with mood problems in the workplace",
@@ -26,6 +27,7 @@ namespace socialarts.club.Data
                     Title = "The assertiveness workbook: How to express your ideas and stand up for yourself at work and in relationships",
                     Authors = "Paterson, R. J.",
                     Year = "2000",
+                    // duplicate publisher
                     Publisher = "Oakland, CA: New Harbinger Publications",
                     Slug = "paterson-2000"
                 },
@@ -40,8 +42,17 @@ namespace socialarts.club.Data
                     Title = "The Anger Control Workbook: Simple, innovative techniques for managing anger and developing healthier ways of relating",
                     Authors = "McKay, M. & Rogers, R.",
                     Year = "2000",
+                    // duplicate publisher
                     Publisher = "Oakland, CA: New Harbinger Publications",
                     Slug = "mckay-2000",
+                },
+                new BibliographyBook {
+                    Title = "Messages: The Communication Skills Book",
+                    Authors = "McKay, M., Davis, M., & Fanning, P.",
+                    Year = "2009",
+                    // duplicate publisher
+                    Publisher = "Oakland, CA: New Harbinger Publications",
+                    Slug = "mckay-2009",
                 },
             };
 
