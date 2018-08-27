@@ -1,14 +1,17 @@
 const path = require('path');
 
 module.exports = {
+    // TODO: Set the mode dynamically, perhaps based on an environmental variable.
+    mode:'development',
     entry: {
         early: './wwwroot-src/webpack/early.js',
         late: './wwwroot-src/webpack/late.js',
     },
     output: {
         // See https://webpack.js.org/guides/code-splitting/ for details on code-splitting.
+        path: path.join(__dirname, 'wwwroot', 'dist'),
+        publicPath: '/wwwroot/',
         filename: '[name].bundle.js',
-        path: path.resolve(__dirname, './wwwroot'),
     },
     module: {
         rules: [

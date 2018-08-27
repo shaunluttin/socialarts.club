@@ -64,6 +64,7 @@ namespace socialarts.club
             {
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
+                app.UseWebpackDevMiddleware();
             }
             else
             {
