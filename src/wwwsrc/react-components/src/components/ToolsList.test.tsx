@@ -9,11 +9,13 @@ test('ToolsList.render should output header and item list', async () => {
     const tools: Tool[] = [
         {
             Id: 'tool-id-01',
+            Json: '',
             Name: 'tool-name-01',
             Path: '/tool-path-01'
         },
         {
             Id: 'tool-id-02',
+            Json: '',
             Name: 'tool-name-02',
             Path: '/tool-path-02'
         },

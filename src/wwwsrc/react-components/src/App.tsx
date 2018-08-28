@@ -15,12 +15,14 @@ class App extends React.Component {
     return [
       {
         Id: '01',
-        Name: '01',
+        Json: '',
+        Name: 'foo',
         Path: '/01',
       },
       {
         Id: '02',
-        Name: '02',
+        Json: '',
+        Name: 'bar',
         Path: '/02',
       },
     ];

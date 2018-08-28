@@ -4,6 +4,7 @@ import * as React from 'react';
 interface Tool {
     Id: string;
     Name: string;
+    Json: string;
     Path: string;
 }
 
