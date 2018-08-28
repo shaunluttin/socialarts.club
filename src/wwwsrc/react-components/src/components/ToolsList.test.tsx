@@ -4,31 +4,57 @@ import ToolsList, { Tool } from './ToolsList';
 
 afterEach(cleanup);
 
-test('ToolsList.render should output header and item list', async () => {
+const getData = (length: number) => Array.from(Array(length).keys()).map(i => {
+    return {
+        id: `id-${i}`,
+        json: `json-${i}`,
+        name: `name-${i}`,
+        path: `path-${i}`,
+        templateUrlPath: `templateUrlPath-${i}`,
+    } as Tool;
+});
+
+test('ToolsList.render should output header', async () => {
     // arrange 
-    const tools: Tool[] = [
-        {
-            id: 'tool-id-01',
-            json: '',
-            name: 'tool-name-01',
-            path: '/tool-path-01'
-        },
-        {
-            id: 'tool-id-02',
-            json: '',
-            name: 'tool-name-02',
-            path: '/tool-path-02'
-        },
-    ];
+    const expectedLength = 3;
+    const tools = getData(expectedLength);
 
     // act
     const toolsList = render(<ToolsList Tools={tools} />);
 
     // assert
     const header = toolsList.getByText('Tools');
-    const listItems = toolsList.getAllByText(/^tool-name/g)
-
     expect(header.nodeName).toBe('H2');
-    expect(listItems).toHaveLength(2);
     expect(toolsList).toMatchSnapshot();
+});
+
+test('ToolsList.render should output correct number of list items', async () => {
+    // arrange 
+    const count = 3;
+    const tools = getData(count);
+
+    // act
+    const toolsList = render(<ToolsList Tools={tools} />);
+
+    // assert
+    const listItems = toolsList.getAllByText(/^name-/g)
+    expect(listItems).toHaveLength(count);
+    expect(toolsList).toMatchSnapshot();
+});
+
+test('ToolsList.render should use correct href for each named item', async () => {
+    // arrange 
+    const count = 2;
+    const tools = getData(count);
+
+    // act
+    const toolsList = render(<ToolsList Tools={tools} />);
+
+    // assert
+    for(const tool of tools) {
+        const path = `${tool.templateUrlPath}/${tool.id}`;
+        const item = toolsList.getByText(tool.name);
+        expect(item.nodeName).toBe('A');
+        expect(item.getAttribute('href')).toBe(path);
+    }
 });
