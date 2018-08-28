@@ -1,15 +1,16 @@
 const path = require('path');
+const paths = require('./paths');
 
 module.exports = {
     entry: {
-        early: './wwwroot-src/webpack/early.js',
-        late: './wwwroot-src/webpack/late.js',
-        react: './react-components-ts/src/index.tsx',
+        early: path.join(paths.entries, 'early.js'),
+        late: path.join(paths.entries, 'late.js'),
+        react: path.join(paths.entries, 'react.js'),
     },
     output: {
         // See https://webpack.js.org/guides/code-splitting/ for details on code-splitting.
-        path: path.join(__dirname, 'wwwroot', 'dist'),
-        publicPath: '/wwwroot/',
+        path: path.join(paths.publicPath, 'dist'),
+        publicPath: paths.publicPath,
         // the `name` comes from the `entry` values e.g. early/late
         filename: '[name].bundle.js',
     },

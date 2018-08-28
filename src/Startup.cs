@@ -66,7 +66,7 @@ namespace socialarts.club
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
                 app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions {
-                    ConfigFile = "config/webpack.config.dev.js",
+                    ConfigFile = "wwwsrc/config/webpack.config.dev.js",
                 });
             }
             else
