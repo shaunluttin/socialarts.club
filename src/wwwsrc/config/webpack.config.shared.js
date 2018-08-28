@@ -1,6 +1,20 @@
 const path = require('path');
 const paths = require('./paths');
 
+// TODO: Replace the es2015 and es2016 presets with babel-preset-env. See babeljs.io/env to update!
+const babelOptions = {
+    "presets": [
+        "react",
+        [
+            "es2015",
+            {
+                "modules": false
+            }
+        ],
+        "es2016"
+    ]
+};
+
 module.exports = {
     entry: {
         early: path.join(paths.entries, 'early.js'),
@@ -17,11 +31,18 @@ module.exports = {
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.json']
     },
+    plugins: [
+        // this is necessary for ASP.NET Core Hot Module Replacement
+    ],
     module: {
         rules: [
             {
                 test: /\.(ts|tsx)$/,
                 use: [
+                    {
+                        loader: 'babel-loader',
+                        options: babelOptions,
+                    },
                     {
                         loader: require.resolve('ts-loader'),
                         options: {

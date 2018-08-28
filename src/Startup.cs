@@ -65,8 +65,12 @@ namespace socialarts.club
             {
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
+
+                // See https://github.com/aspnet/JavaScriptServices/tree/master/src/Microsoft.AspNetCore.SpaServices#webpack-dev-middleware
                 app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions {
                     ConfigFile = "wwwsrc/config/webpack.config.dev.js",
+                    HotModuleReplacement = true,
+                    ReactHotModuleReplacement = true,
                 });
             }
             else
