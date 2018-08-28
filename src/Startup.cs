@@ -14,6 +14,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using socialarts.club.TagHelpers.Bootstrap4;
 using Microsoft.AspNetCore.SpaServices.Webpack;
+using socialarts.club.ViewComponents.Extensions;
+using Microsoft.AspNetCore.Mvc.ApplicationModels;
 
 namespace socialarts.club
 {
@@ -53,7 +55,22 @@ namespace socialarts.club
                 .AddDefaultIdentity<IdentityUser>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services
+                .AddMvc()
+                .AddRazorPagesOptions(options =>
+                {
+                    options.Conventions.AddFolderRouteModelConvention("/Tools", model =>
+                    {
+                        foreach (var s in model.Selectors)
+                        {
+                            var templateWithId = AttributeRouteModel
+                                .CombineTemplates(s.AttributeRouteModel.Template, "{id:int?}");
+
+                            s.AttributeRouteModel.Template = templateWithId;
+                        }
+                    });
+                })
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddSingleton<BootstrapTagHelperService>();
         }
@@ -65,7 +82,8 @@ namespace socialarts.club
             {
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
-                app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions {
+                app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
+                {
                     ConfigFile = "wwwsrc/config/webpack.config.dev.js",
                 });
             }
