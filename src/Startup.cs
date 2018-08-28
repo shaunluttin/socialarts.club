@@ -59,16 +59,7 @@ namespace socialarts.club
                 .AddMvc()
                 .AddRazorPagesOptions(options =>
                 {
-                    options.Conventions.AddFolderRouteModelConvention("/Tools", model =>
-                    {
-                        foreach (var s in model.Selectors)
-                        {
-                            var templateWithId = AttributeRouteModel
-                                .CombineTemplates(s.AttributeRouteModel.Template, "{id:int?}");
-
-                            s.AttributeRouteModel.Template = templateWithId;
-                        }
-                    });
+                    options.Conventions.AddFolderRouteParameter("/Tools", "{id:int?}");
                 })
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
