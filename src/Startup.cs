@@ -53,6 +53,7 @@ namespace socialarts.club
                 //      .AddDefaultTokenProviders
                 // See https://github.com/aspnet/Identity for details.
                 .AddDefaultIdentity<IdentityUser>()
+                .AddDefaultUI()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services
@@ -60,6 +61,7 @@ namespace socialarts.club
                 .AddRazorPagesOptions(options =>
                 {
                     options.Conventions.AddFolderRouteParameter("/Tools", "{id:int?}");
+                    options.Conventions.AuthorizeAreaFolder("Me", "/");
                 })
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
