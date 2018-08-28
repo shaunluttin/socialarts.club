@@ -1,17 +1,29 @@
 import * as React from 'react';
+import ToolsList, { Tool } from "./components/ToolsList";
 
 class App extends React.Component {
+
   public render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
+        <ToolsList Tools={this.getTools()} />
       </div>
     );
+  }
+
+  private getTools(): Tool[] {
+    return [
+      {
+        Id: '01',
+        Name: '01',
+        Path: '/01',
+      },
+      {
+        Id: '02',
+        Name: '02',
+        Path: '/02',
+      },
+    ];
   }
 }
 
