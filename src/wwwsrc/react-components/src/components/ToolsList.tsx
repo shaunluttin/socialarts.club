@@ -33,8 +33,4 @@ function ToolsList({ Tools }: Props) {
 }
 
 export default ToolsList;
-
-export {
-    Tool,
-    Props,
-}
+export { Tool }
