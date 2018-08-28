@@ -1,18 +1,28 @@
 import * as React from 'react';
-import './App.css';
+import ToolsList, { Tool } from "./components/ToolsList";
 
 class App extends React.Component {
+
+  public state = {
+    tools: [] as Tool[]
+  }
+
   public render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
+        <ToolsList Tools={this.state.tools} />
       </div>
     );
+  }
+
+  public async componentDidMount() {
+    const tools = await this.getTools();
+    this.setState({ tools });
+  }
+
+  private async getTools(): Promise<Tool[]> {
+    return fetch('https://localhost:5001/api/tools')
+      .then((response) => response.json());
   }
 }
 
