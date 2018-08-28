@@ -2,10 +2,10 @@ import * as React from 'react';
 
 // tslint:disable-next-line:interface-name
 interface Tool {
-    Id: string;
-    Name: string;
-    Json: string;
-    Path: string;
+    id: string;
+    name: string;
+    json: string;
+    path: string;
 }
 
 // tslint:disable-next-line:interface-name
@@ -15,8 +15,8 @@ interface Props {
 
 const renderTool = (tool: Tool) => {
     return (
-        <li key={tool.Id}>
-            <a href={tool.Path}>{tool.Name}</a>
+        <li key={tool.id}>
+            <a href={tool.path}>{tool.name}</a>
         </li>
     );
 };

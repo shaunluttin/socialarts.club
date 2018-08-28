@@ -15,28 +15,14 @@ class App extends React.Component {
     );
   }
 
-  public componentDidMount() {
-    const tools = this.getTools();
-    this.setState({
-      tools
-    });
+  public async componentDidMount() {
+    const tools = await this.getTools();
+    this.setState({ tools });
   }
 
-  private getTools(): Tool[] {
-    return [
-      {
-        Id: '01',
-        Json: '',
-        Name: 'foo',
-        Path: '/01',
-      },
-      {
-        Id: '02',
-        Json: '',
-        Name: 'bar',
-        Path: '/02',
-      },
-    ];
+  private async getTools(): Promise<Tool[]> {
+    return fetch('https://localhost:5001/api/tools')
+      .then((response) => response.json());
   }
 }
 

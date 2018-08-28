@@ -8,16 +8,16 @@ test('ToolsList.render should output header and item list', async () => {
     // arrange 
     const tools: Tool[] = [
         {
-            Id: 'tool-id-01',
-            Json: '',
-            Name: 'tool-name-01',
-            Path: '/tool-path-01'
+            id: 'tool-id-01',
+            json: '',
+            name: 'tool-name-01',
+            path: '/tool-path-01'
         },
         {
-            Id: 'tool-id-02',
-            Json: '',
-            Name: 'tool-name-02',
-            Path: '/tool-path-02'
+            id: 'tool-id-02',
+            json: '',
+            name: 'tool-name-02',
+            path: '/tool-path-02'
         },
     ];
 
