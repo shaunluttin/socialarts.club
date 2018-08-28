@@ -8,10 +8,10 @@
     "postinstall": "npm install wwwsrc/react-components"
   },
   "dependencies": {
-    "app-components-ts": "file:wwwsrc/react-components",
     "bootstrap": "^4.1.3",
     "jquery": "^3.3.1",
-    "popper.js": "1.14.3"
+    "popper.js": "1.14.3",
+    "react-components": "file:wwwsrc/react-components"
   },
   "devDependencies": {
     "aspnet-webpack": "^3.0.0",
