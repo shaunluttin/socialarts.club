@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "build": "webpack --config webpack.config.js --mode=development",
-    "release": "webpack --config webpack.config.js --mode=production"
+    "build": "webpack --config config/webpack.config.dev.js --mode=development",
+    "release": "webpack --config config/webpack.config.prod.js --mode=production"
   },
   "dependencies": {
     "bootstrap": "^4.1.3",
@@ -20,6 +20,8 @@
     "precss": "^3.1.2",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.22.1",
+    "ts-loader": "^4.5.0",
+    "typescript": "^3.0.1",
     "webpack": "^4.16.5",
     "webpack-cli": "^3.1.0",
     "webpack-dev-middleware": "^3.2.0"

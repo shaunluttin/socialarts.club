@@ -1,22 +1,37 @@
 const path = require('path');
 
 module.exports = {
-    // TODO: Set the mode dynamically, perhaps based on an environmental variable.
-    mode:'development',
     entry: {
         early: './wwwroot-src/webpack/early.js',
         late: './wwwroot-src/webpack/late.js',
+        react: './react-components-ts/src/index.tsx',
     },
     output: {
         // See https://webpack.js.org/guides/code-splitting/ for details on code-splitting.
         path: path.join(__dirname, 'wwwroot', 'dist'),
         publicPath: '/wwwroot/',
+        // the `name` comes from the `entry` values e.g. early/late
         filename: '[name].bundle.js',
+    },
+    resolve: {
+        extensions: ['.ts', '.tsx', '.js', '.json']
     },
     module: {
         rules: [
             {
-                test: /\.(scss)$/,
+                test: /\.(ts|tsx)$/,
+                use: [
+                    {
+                        loader: require.resolve('ts-loader'),
+                        options: {
+                            // disable type checker - we will use it in fork plugin
+                            transpileOnly: true,
+                        },
+                    },
+                ],
+            },
+            {
+                test: /\.(css|scss)$/,
                 use: [{
                     loader: 'style-loader', // inject CSS to page
                 }, {

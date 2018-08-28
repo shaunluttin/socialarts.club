@@ -13,6 +13,7 @@ using socialarts.club.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using socialarts.club.TagHelpers.Bootstrap4;
+using Microsoft.AspNetCore.SpaServices.Webpack;
 
 namespace socialarts.club
 {
@@ -64,7 +65,9 @@ namespace socialarts.club
             {
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
-                app.UseWebpackDevMiddleware();
+                app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions {
+                    ConfigFile = "config/webpack.config.dev.js",
+                });
             }
             else
             {
