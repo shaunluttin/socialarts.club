@@ -54,22 +54,26 @@ namespace socialarts.club.Pages.Tools
                 // return 403 forbidden (or other appropriate status).
             }
 
-            Form = JsonConvert.DeserializeObject<AssertivenessScorecard>(doc.Json);
             Disabled = true;
+            Form = JsonConvert.DeserializeObject<AssertivenessScorecard>(doc.Json);
         }
 
         public async Task<IActionResult> OnPostAsync()
         {
             var currentUserId = userManager.GetUserId(User);
 
+            // ~/Tools/AssertivenessScorecard
+            var razorPage = PageContext.ActionDescriptor.DisplayName;
+            var name = razorPage.Split('/').Last();
+
             var doc = new ToolsDocument
             {
-                Name = nameof(AssertivenessScorecardModel),
+                Name = name,
+                TemplateUrlPath = razorPage,
                 OwnerId = currentUserId,
                 Json = JsonConvert.SerializeObject(Form),
             };
 
-            // TODO (security): Add the current user as the document's owner.
             var result = db.ToolsDocument.Add(doc);
             await db.SaveChangesAsync();
 

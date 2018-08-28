@@ -4,6 +4,7 @@ import * as React from 'react';
 interface Tool {
     id: string;
     name: string;
+    templateUrlPath: string;
     json: string;
     path: string;
 }
@@ -14,9 +15,10 @@ interface Props {
 }
 
 const renderTool = (tool: Tool) => {
+    const path = `${tool.templateUrlPath}/${tool.id}`;
     return (
         <li key={tool.id}>
-            <a href={tool.path}>{tool.name}</a>
+            <a href={path}>{tool.name}</a>
         </li>
     );
 };

@@ -21,6 +21,8 @@ class App extends React.Component {
   }
 
   private async getTools(): Promise<Tool[]> {
+    // TODO: inject this URL via props.
+    // TODO: inject an IO service via props.
     return fetch('https://localhost:5001/api/tools')
       .then((response) => response.json());
   }

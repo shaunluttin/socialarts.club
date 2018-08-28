@@ -1,6 +1,10 @@
 
 Tuesday 28 August 2018
 
+How to add a migration:
+
+    dotnet ef migrations add add-template-url-path
+
 It might be worth moving `react-components` out of `wwwsrc` and into a sibling project. 
 
     src/

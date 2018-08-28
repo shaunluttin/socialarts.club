@@ -13,7 +13,8 @@ using socialarts.club.ViewComponents.Extensions;
 namespace socialarts.club.Areas.Users.Pages
 {
     // Currently, the current user's URL is socialarts.club/me because that is easy.
-    // Other options:
+    // Options:
+    // socialarts.club/me
     // socialarts.club/shaunluttin
     // socialarts.club/user
     // socialarts.club/users
@@ -35,13 +36,6 @@ namespace socialarts.club.Areas.Users.Pages
         public void OnGet()
         {
             var currentUserId = userManager.GetUserId(User);
-
-            // TODO (maybe) Use async/await with .ToAsyncEnumerable
-            // TODO (maybe) Return the GroupBy directly.
-            ToolsDocuments = db.ToolsDocument
-                .Where(doc => doc.OwnerId == currentUserId)
-                .GroupBy(doc => doc.Name, doc => doc.Json)
-                .ToDictionary(g => g.Key, g => g.ToList());
         }
     }
 }
