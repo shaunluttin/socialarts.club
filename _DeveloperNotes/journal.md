@@ -1,4 +1,12 @@
 
+Tuesday 28 August 2018
+
+It might be worth moving `react-components` out of `wwwsrc` and into a sibling project. 
+
+    src/
+       aspnet/ <--- the aspnet source
+       react/  <--- the react components
+
 Monday 13 August 2018
 
 Sqlite does not support the AlterColumnOperation. This is going to make Entity Framework difficult, because it will involve rebuilding changed tables.
