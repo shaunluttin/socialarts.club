@@ -1,6 +1,14 @@
 # socialarts.club
 
-Initital setup:
+### Run Locally
+
+    cd src
+    npm install
+    dotnet run
+
+Then visit localhost:5000
+
+### Technology Stack
 
 * Registrar: Namespro.ca with 2 custom name servers.
 * Nameservers: Cloudflare 
@@ -9,8 +17,11 @@ Initital setup:
 * SSL certificate: Cloudflare
 * Custom Email: Office 365 
 * Web Hosting: Azure App Service with continuous deployment from GitHub.
-* Web App: ASP.NET Core MVC with Razor Pages and Bootstrap 4.
 * Version Control: Git and GitHub
+* Web App: ASP.NET Core MVC with Razor Pages and Bootstrap 4.
+* Client Side:
+  * Create React App with TypeScript
+  * https://github.com/Microsoft/TypeScript-React-Starter
 
 Valuable resources: 
 
