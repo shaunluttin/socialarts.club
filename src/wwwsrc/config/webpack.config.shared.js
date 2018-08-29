@@ -5,7 +5,7 @@ module.exports = {
     entry: {
         early: path.join(paths.entries, 'early.js'),
         late: path.join(paths.entries, 'late.js'),
-        react: path.join(paths.entries, 'react.js'),
+        'react-components': path.join(paths.entries, 'react-components.js'),
     },
     output: {
         // See https://webpack.js.org/guides/code-splitting/ for details on code-splitting.

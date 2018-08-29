@@ -1,1 +1,0 @@
-import '../react-components/src/index';
