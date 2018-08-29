@@ -14,7 +14,7 @@ const getData = (length: number) => Array.from(Array(length).keys()).map(i => {
     } as Tool;
 });
 
-test('ToolsList.render should output header', async () => {
+test('ToolsList.render should output header', () => {
     // arrange 
     const expectedLength = 3;
     const tools = getData(expectedLength);
@@ -28,7 +28,7 @@ test('ToolsList.render should output header', async () => {
     expect(toolsList).toMatchSnapshot();
 });
 
-test('ToolsList.render should output correct number of list items', async () => {
+test('ToolsList.render should output correct number of list items', () => {
     // arrange 
     const count = 3;
     const tools = getData(count);
@@ -42,7 +42,7 @@ test('ToolsList.render should output correct number of list items', async () => 
     expect(toolsList).toMatchSnapshot();
 });
 
-test('ToolsList.render should use correct href for each named item', async () => {
+test('ToolsList.render should use correct href for each named item', () => {
     // arrange 
     const count = 2;
     const tools = getData(count);
