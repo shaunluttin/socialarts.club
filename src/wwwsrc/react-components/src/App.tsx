@@ -1,10 +1,19 @@
 import * as React from 'react';
 import ToolsList, { Tool } from "./components/ToolsList";
 
-class App extends React.Component {
+// tslint:disable-next-line:interface-name
+interface Props {
+  getTools: () => Promise<Tool[]>
+}
+
+class App extends React.Component<Props> {
 
   public state = {
     tools: [] as Tool[]
+  }
+
+  constructor(props: any) {
+    super(props);
   }
 
   public render() {
@@ -16,15 +25,8 @@ class App extends React.Component {
   }
 
   public async componentDidMount() {
-    const tools = await this.getTools();
+    const tools = await this.props.getTools();
     this.setState({ tools });
-  }
-
-  private async getTools(): Promise<Tool[]> {
-    // TODO: inject this URL via props.
-    // TODO: inject an IO service via props.
-    return fetch('https://localhost:5001/api/tools')
-      .then((response) => response.json());
   }
 }
 
