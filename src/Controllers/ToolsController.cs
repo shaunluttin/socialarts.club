@@ -1,12 +1,15 @@
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using OpenIddict.Validation;
 using socialarts.club.Data;
 
 namespace socialarts.club.Controllers
 {
     // ~/api/tools
+    [Authorize(AuthenticationSchemes = OpenIddictValidationDefaults.AuthenticationScheme)]
     public class ToolsController : ApiControllerBase
     {
         private readonly ApplicationDbContext db;

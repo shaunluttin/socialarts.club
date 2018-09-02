@@ -1,12 +1,10 @@
 import { User, UserManager, UserManagerSettings } from 'oidc-client';
 
-console.log('foo');
-
-const host = window.location.origin;
 
 //
 // Configure the oidc-client.js UserManager.
 //
+const host = window.location.origin;
 const settings: UserManagerSettings = {
     authority: host,
     client_id: 'socialarts.club',
@@ -33,18 +31,22 @@ const getAccessToken = async (): Promise<string> => {
         user = await userManager.signinSilent();
         return user.access_token;
     } catch (err) {
+        // TODO Introduce propper logging.
+        // tslint:disable-next-line
         console.log(err);
     }
 
     return '';
 };
 
-export default async (input?: Request | string, init?: RequestInit): Promise<Response> => {
-    console.log('baz');
-
+export default async (input?: Request | string): Promise<Response> => {
     const token = await getAccessToken();
+    const init = {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+        method: 'GET',
+    };
 
     return fetch(input, init);
 };
-
-console.log('bar');
