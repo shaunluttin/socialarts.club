@@ -39,9 +39,11 @@ namespace socialarts.club
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlite(
-                    Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDbContext<ApplicationDbContext>(options => {
+
+                options.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
+                options.UseOpenIddict();
+            });
 
             services
                 // AddDefaultIdentity encapsulates the following:
@@ -53,7 +55,27 @@ namespace socialarts.club
                 // See https://github.com/aspnet/Identity for details.
                 .AddDefaultIdentity<IdentityUser>()
                 .AddDefaultUI()
+                .AddDefaultTokenProviders()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddOpenIddict()
+                .AddCore(options => {
+                    options
+                        .UseEntityFrameworkCore()
+                        .UseDbContext<ApplicationDbContext>();
+                })
+                .AddServer(options => {
+                    options.UseMvc();
+                    options.EnableAuthorizationEndpoint("/connect/authorize");
+
+                    // TODO: answer these questions.
+                    // what is the purpose of the token endpoint? 
+                    // do we need it for our use case?
+                    options.EnableTokenEndpoint("/connect/token");
+                    options.AddEphemeralSigningKey();
+                    options.AllowImplicitFlow();
+                })
+                .AddValidation();
 
             services
                 .AddMvc()
