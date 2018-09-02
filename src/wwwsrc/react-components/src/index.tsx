@@ -8,4 +8,5 @@ ReactDOM.render(
   <App getTools={repository.getTools} />,
   document.getElementById('root') as HTMLElement
 );
+
 registerServiceWorker();
