@@ -11,7 +11,7 @@ const settings: UserManagerSettings = {
     authority: host,
     client_id: 'socialarts.club',
     loadUserInfo: false,
-    response_type: 'token',
+    response_type: 'id_token token',
     scope: 'openid',
     silentRequestTimeout: 10000,
     silent_redirect_uri: `${host}/Me`
@@ -35,6 +35,8 @@ const getAccessToken = async (): Promise<string> => {
     } catch (err) {
         console.log(err);
     }
+
+    return '';
 };
 
 export default async (input?: Request | string, init?: RequestInit): Promise<Response> => {
