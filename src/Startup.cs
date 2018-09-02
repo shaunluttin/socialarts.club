@@ -16,6 +16,7 @@ using socialarts.club.TagHelpers.Bootstrap4;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using socialarts.club.ViewComponents.Extensions;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
+using AspNet.Security.OpenIdConnect.Primitives;
 
 namespace socialarts.club
 {
@@ -37,6 +38,12 @@ namespace socialarts.club
                 // This lambda determines whether user consent for non-essential cookies is needed for a given request.
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
+
+            services.Configure<IdentityOptions>(options => {
+                options.ClaimsIdentity.UserNameClaimType = OpenIdConnectConstants.Claims.Name;
+                options.ClaimsIdentity.UserIdClaimType = OpenIdConnectConstants.Claims.Subject;
+                options.ClaimsIdentity.RoleClaimType = OpenIdConnectConstants.Claims.Role;
             });
 
             services.AddDbContext<ApplicationDbContext>(options => {
