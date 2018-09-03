@@ -23,12 +23,11 @@ if (window !== window.parent) {
 
 const getAccessToken = async (): Promise<string> => {
     try {
-        let user: User = await userManager.getUser();
-        if (user) {
-            return user.access_token;
-        }
+        // Important: We can only rely on userManager.getUser() if we can
+        // be verity that it returns the currently logged in user and not
+        // the previously logged in user.
 
-        user = await userManager.signinSilent();
+        const user = await userManager.signinSilent();
         return user.access_token;
     } catch (err) {
         // TODO Introduce propper logging.
