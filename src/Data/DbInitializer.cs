@@ -1,18 +1,51 @@
+using System;
 using System.Linq;
+using System.Threading.Tasks;
+using OpenIddict.Abstractions;
+using OpenIddict.Core;
+using OpenIddict.EntityFrameworkCore.Models;
 
 namespace socialarts.club.Data
 {
     // see https://docs.microsoft.com/en-us/aspnet/core/data/ef-rp/intro?view=aspnetcore-2.1&tabs=visual-studio#add-code-to-initialize-the-db-with-test-data
     public static class DbInitializer
     {
-        public static void Initialize(ApplicationDbContext context)
+        public static async void Initialize(ApplicationDbContext context, OpenIddictApplicationManager<OpenIddictApplication> manager)
         {
             context.Database.EnsureCreated();
 
-            AddBibliographEntries(context);
+            await AddBibliographEntries(context);
+            await AddClientApplications(context, manager);
         }
 
-        public static void AddBibliographEntries(ApplicationDbContext context)
+        private static async Task AddClientApplications(ApplicationDbContext context, OpenIddictApplicationManager<OpenIddictApplication> manager)
+        {
+            const string clientId = "socialarts.club";
+
+            var app = await manager.FindByClientIdAsync(clientId);
+            if (app != null)
+            {
+                await manager.DeleteAsync(app);
+            }
+
+            var descriptor = new OpenIddictApplicationDescriptor
+            {
+                ClientId = clientId,
+                DisplayName = clientId,
+                // TODO: Read this from configuration.
+                RedirectUris = { new Uri("https://localhost:5001/Me") },
+                Permissions =
+                    {
+                        OpenIddictConstants.Permissions.Endpoints.Authorization,
+                        OpenIddictConstants.Permissions.GrantTypes.Implicit,
+                        OpenIddictConstants.Permissions.Scopes.OpenId,
+                    }
+            };
+
+            await manager.CreateAsync(descriptor);
+        }
+
+        private static async Task AddBibliographEntries(ApplicationDbContext context)
         {
             // TODO (nice-to-have) consider de-duplicating the duplicate publisher data.
             var entries = new BibliographyEntry[] {
@@ -65,7 +98,7 @@ namespace socialarts.club.Data
                 }
             }
 
-            context.SaveChanges();
+            await context.SaveChangesAsync();
         }
     }
 }

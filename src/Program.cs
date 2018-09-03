@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using OpenIddict.Core;
+using OpenIddict.EntityFrameworkCore.Models;
 using socialarts.club.Data;
 
 namespace socialarts.club
@@ -24,7 +26,9 @@ namespace socialarts.club
                 try
                 {
                     var context = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-                    DbInitializer.Initialize(context);
+                    var manager = scope.ServiceProvider.GetRequiredService<OpenIddictApplicationManager<OpenIddictApplication>>();
+
+                    DbInitializer.Initialize(context, manager);
                 }
                 catch (Exception ex)
                 {
