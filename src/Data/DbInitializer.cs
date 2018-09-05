@@ -33,7 +33,10 @@ namespace socialarts.club.Data
                 ClientId = clientId,
                 DisplayName = clientId,
                 // TODO: Read this from configuration.
-                RedirectUris = { new Uri("https://localhost:5001/Me") },
+                RedirectUris = {
+                    new Uri("https://localhost:5001/Me"),
+                    new Uri("https://socialarts.club/Me")
+                },
                 Permissions =
                     {
                         OpenIddictConstants.Permissions.Endpoints.Authorization,
