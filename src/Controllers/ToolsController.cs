@@ -76,7 +76,7 @@ namespace socialarts.club.Controllers
                 return false;
             }
 
-            claim = identity.FindFirst(c => c.Type == claimType);
+            claim = identity.FindFirst(claimType);
             return claim != null;
         }
 
