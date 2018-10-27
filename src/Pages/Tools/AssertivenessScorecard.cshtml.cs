@@ -48,9 +48,12 @@ namespace socialarts.club.Pages.Tools
 
             var doc = await db.ToolsDocument.FindAsync(id);
 
-            if (doc == null) {
+            if (doc == null)
+            {
                 // return 404 not found (or other appropriate status).
-            } else if (doc.OwnerId != currentUserId) {
+            }
+            else if (doc.OwnerId != currentUserId)
+            {
                 // return 403 forbidden (or other appropriate status).
             }
 
@@ -59,6 +62,14 @@ namespace socialarts.club.Pages.Tools
         }
 
         public async Task<IActionResult> OnPostAsync()
+        {
+            var doc = await SaveToolsDocument();
+
+            // Post/Redirect/Get to avoid multiple form submission
+            return RedirectToPage(HttpContext.Request.Path, new { doc.Id });
+        }
+
+        public async Task<ToolsDocument> SaveToolsDocument()
         {
             var currentUserId = userManager.GetUserId(User);
 
@@ -77,8 +88,7 @@ namespace socialarts.club.Pages.Tools
             var result = db.ToolsDocument.Add(doc);
             await db.SaveChangesAsync();
 
-            // Post/Redirect/Get to avoid multiple form submission
-            return RedirectToPage(HttpContext.Request.Path, new { doc.Id });
+            return doc;
         }
     }
 }
