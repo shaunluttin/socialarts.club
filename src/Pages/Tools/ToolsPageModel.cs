@@ -12,9 +12,11 @@ public abstract class ToolsPageModel<T> : PageModel
     [BindProperty]
     public T Form { get; set; }
 
-    private ApplicationDbContext db { get; }
+    public bool Disabled { get; set; }
 
     protected readonly UserManager<IdentityUser> userManager;
+
+    private ApplicationDbContext db { get; }
 
     public ToolsPageModel(
         ApplicationDbContext db,
@@ -23,8 +25,6 @@ public abstract class ToolsPageModel<T> : PageModel
         this.userManager = userManager;
         this.db = db;
     }
-
-    public bool Disabled { get; set; }
 
     public async Task OnGetAsync(int id = 0)
     {
