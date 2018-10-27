@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
@@ -29,15 +30,17 @@ public abstract class ToolsPageModel<T> : PageModel
     {
         var doc = await GetToolsDocument(id);
 
-        var currentUserId = userManager.GetUserId(User);
-
         if (doc == null)
         {
-            // return 404 not found (or other appropriate status).
+            // TODO return 404 not found (or other appropriate status).
+            return;
         }
-        else if (doc.OwnerId != currentUserId)
+
+        var currentUserId = GetCurrentUserId();
+        if (doc.OwnerId != currentUserId)
         {
-            // return 403 forbidden (or other appropriate status).
+            // TODO return 403 forbidden (or other appropriate status).
+            return;
         }
 
         Disabled = true;
@@ -54,7 +57,7 @@ public abstract class ToolsPageModel<T> : PageModel
 
     private async Task<ToolsDocument> SaveToolsDocument()
     {
-        var currentUserId = userManager.GetUserId(User);
+        var currentUserId = GetCurrentUserId();
 
         // ~/Tools/AssertivenessScorecard
         var razorPage = PageContext.ActionDescriptor.DisplayName;
@@ -78,9 +81,13 @@ public abstract class ToolsPageModel<T> : PageModel
     {
         if (id <= 0) return null;
 
-        var currentUserId = userManager.GetUserId(User);
         var doc = await db.ToolsDocument.FindAsync(id);
 
         return doc;
+    }
+
+    private string GetCurrentUserId()
+    {
+        return userManager.GetUserId(User) ?? "Anonymous";
     }
 }

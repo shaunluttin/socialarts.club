@@ -6,8 +6,9 @@
 
 <p>Adapted from <citation author="Bilsker" year="2009">Antidepressant Skills @@ Work</citation>.</p>
 
-<form class="sa-form-tools">
-    <form-group-textarea label="The problem:" placeholder="The problem is... " autofocus />
+<!-- TODO Consider breaking out a view component for the shared parts of this form. -->
+<form class="sa-form-tools" method="POST">
+    <form-group-textarea label="The problem:" placeholder="The problem is... " asp-for="Form.TheProblem" autofocus />
     @for(var i = 1; i <= 3; ++i) {
         <fieldset>
             <legend><small>Option @i:</small></legend>
@@ -24,5 +25,13 @@
             </div>
         </fieldset>
     }
-    <button type="submit" class="btn btn-primary" disabled>Download as Pdf (Coming Soon)</button>
+    <!-- TODO Move to partial view or view component. -->
+    @if(Model.Disabled) 
+    {
+        <a class="btn btn-info" asp-area="me" asp-page="/Index">View History</a>
+        <a class="btn btn-secondary" asp-page="">Create New</a>
+    } else 
+    {
+        <button type="submit" class="btn btn-primary">Save</button>
+    }
 </form>
