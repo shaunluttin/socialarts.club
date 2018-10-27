@@ -8,6 +8,7 @@
 
 <form class="sa-form-tools" method="POST">
     <fieldset @(Model.Disabled ? "disabled" : "")>
+
         <div class="row">
             <div class="col">
                 <!-- Use text here to maintain a colloquial, casual feel. -->
@@ -28,6 +29,7 @@
         <form-group-input type="text" label="How did it turn out?" asp-for="Form.Outcome" />
         <form-group-input type="text" label="Feelings Afterward:" asp-for="Form.FeelingsAfter" />
         <form-group-textarea label="Alternative Response:" asp-for="Form.AlternativeResponse" />
+
     </fieldset>
     <partial name="_ToolsPageButtonGroup"></partial>
 </form>

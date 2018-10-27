@@ -6,24 +6,37 @@
 
 <p>Adapted from <citation author="Bilsker" year="2009">Antidepressant Skills @@ Work</citation>.</p>
 
-<!-- TODO Consider breaking out a view component for the shared parts of this form. -->
+<!-- 
+    TODO Consider breaking out a view component for the shared parts of this form. 
+    form fieldset fieldset partial form
+-->
 <form class="sa-form-tools" method="POST">
-    <form-group-textarea label="The problem:" placeholder="The problem is... " asp-for="Form.TheProblem" autofocus />
-    @for(var i = 1; i <= 3; ++i) {
-        <fieldset>
-            <legend><small>Option @i:</small></legend>
-            <div class="form-row">
-                <div class="col">
-                    <form-group-textarea placeholder="Action" />
+    <fieldset @(Model.Disabled ? "disabled" : "")>
+
+        <form-group-textarea 
+            label="The problem:" 
+            placeholder="The problem is... " 
+            asp-for="Form.TheProblem" 
+            autofocus />
+
+        @for(var i = 1; i <= 3; ++i) 
+        {
+            <fieldset>
+                <legend><small>Option @i:</small></legend>
+                <div class="form-row">
+                    <div class="col">
+                        <form-group-textarea placeholder="Action" />
+                    </div>
+                    <div class="col">
+                        <form-group-textarea placeholder="Advantages" />
+                    </div>
+                    <div class="col">
+                        <form-group-textarea placeholder="Disadvantages" />
+                    </div>
                 </div>
-                <div class="col">
-                    <form-group-textarea placeholder="Advantages" />
-                </div>
-                <div class="col">
-                    <form-group-textarea placeholder="Disadvantages" />
-                </div>
-            </div>
-        </fieldset>
-    }
+            </fieldset>
+        }
+
+    </fieldset>
     <partial name="_ToolsPageButtonGroup"></partial>
 </form>
