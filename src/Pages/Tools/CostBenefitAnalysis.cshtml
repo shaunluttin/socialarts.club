@@ -19,19 +19,25 @@
             asp-for="Form.TheProblem" 
             autofocus />
 
-        @for(var i = 1; i <= 3; ++i) 
+        @for(var i = 0; i < 3; ++i) 
         {
             <fieldset>
-                <legend><small>Option @i:</small></legend>
+                <legend><small>Option @(i + 1):</small></legend>
                 <div class="form-row">
                     <div class="col">
-                        <form-group-textarea placeholder="Action" />
+                        <form-group-textarea 
+                            asp-for="Form.Options[i].Action"
+                            placeholder="Action" />
                     </div>
                     <div class="col">
-                        <form-group-textarea placeholder="Advantages" />
+                        <form-group-textarea 
+                            asp-for="Form.Options[i].Advantages"
+                            placeholder="Advantages" />
                     </div>
                     <div class="col">
-                        <form-group-textarea placeholder="Disadvantages" />
+                        <form-group-textarea 
+                            asp-for="Form.Options[i].Disadvantages"
+                            placeholder="Disadvantages" />
                     </div>
                 </div>
             </fieldset>
