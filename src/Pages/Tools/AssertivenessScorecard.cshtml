@@ -2,36 +2,31 @@
 @model AssertivenessScorecardModel
 @{
     ViewData["Title"] = "Assertiveness Scorecard";
+    // citation
+    ViewData["Year"] = "2000";
+    ViewData["Author"] = "Paterson";
+    ViewData["Book"] = "The assertivness workbook";
 }
 
-<p>Adapted from <citation author="Paterson" year="2000">The assertiveness workbook</citation>.</p>
-
-<form class="sa-form-tools" method="POST">
-    <fieldset @(Model.Disabled ? "disabled" : "")>
-
-        <div class="row">
-            <div class="col">
-                <!-- Use text here to maintain a colloquial, casual feel. -->
-                <form-group-input type="text" label="Date:" asp-for="Form.Date" autofocus />
-            </div>
-            <div class="col">
-                <form-group-input type="text" label="Time:" asp-for="Form.Time" />
-            </div>
-            <div class="col">
-                <form-group-input type="text" label="Place:" asp-for="Form.Place" />
-            </div>
-        </div>
-        <form-group-textarea label="Person/Situation:" asp-for="Form.PersonOrSituation" />
-        <form-group-textarea label="Your Response:" asp-for="Form.YourResponse" />
-        <form-group-select label="Assertive, Passive, Agressive, or P/A?" asp-for="Form.YourAssessment" asp-items="Model.AssessmentOptions" >
-            <option value="">Select One</option>
-        </form-group-select>
-        <form-group-input type="text" label="How did it turn out?" asp-for="Form.Outcome" />
-        <form-group-input type="text" label="Feelings Afterward:" asp-for="Form.FeelingsAfter" />
-        <form-group-textarea label="Alternative Response:" asp-for="Form.AlternativeResponse" />
-
-    </fieldset>
-    <partial name="_ToolsPageButtonGroup"></partial>
-</form>
+<div class="row">
+    <div class="col">
+        <!-- Use text here to maintain a colloquial, casual feel. -->
+        <form-group-input type="text" label="Date:" asp-for="Form.Date" autofocus />
+    </div>
+    <div class="col">
+        <form-group-input type="text" label="Time:" asp-for="Form.Time" />
+    </div>
+    <div class="col">
+        <form-group-input type="text" label="Place:" asp-for="Form.Place" />
+    </div>
+</div>
+<form-group-textarea label="Person/Situation:" asp-for="Form.PersonOrSituation" />
+<form-group-textarea label="Your Response:" asp-for="Form.YourResponse" />
+<form-group-select label="Assertive, Passive, Agressive, or P/A?" asp-for="Form.YourAssessment" asp-items="Model.AssessmentOptions" >
+    <option value="">Select One</option>
+</form-group-select>
+<form-group-input type="text" label="How did it turn out?" asp-for="Form.Outcome" />
+<form-group-input type="text" label="Feelings Afterward:" asp-for="Form.FeelingsAfter" />
+<form-group-textarea label="Alternative Response:" asp-for="Form.AlternativeResponse" />
 
 
