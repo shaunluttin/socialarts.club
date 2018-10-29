@@ -3,10 +3,10 @@
 
     var author = ViewData["Author"];
     var year = ViewData["Year"];
-    var title = ViewData["Title"];
+    var book = ViewData["Book"];
 }
 
-<p>Adapted from <citation author="@author" year="@year">@title</citation>.</p>
+<p>Adapted from <citation author="@author" year="@year">@book</citation>.</p>
 
 <form class="sa-form-tools" method="POST">
     <fieldset @(Model.Disabled ? "disabled" : "")>

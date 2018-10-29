@@ -2,47 +2,38 @@
 @model CostBenefitAnalysisModel
 @{
     ViewData["Title"] = "Cost Benefit Analysis";
+    // citation
+    ViewData["Year"] = "2009";
+    ViewData["Author"] = "Bilsker";
+    ViewData["Book"] = "Antidepressant Skills @ Work";
 }
 
-<p>Adapted from <citation author="Bilsker" year="2009">Antidepressant Skills @@ Work</citation>.</p>
+<form-group-textarea 
+    label="The problem:" 
+    placeholder="The problem is... " 
+    asp-for="Form.TheProblem" 
+    autofocus />
 
-<!-- 
-    TODO Consider breaking out a view component for the shared parts of this form. 
-    form fieldset fieldset partial form
--->
-<form class="sa-form-tools" method="POST">
-    <fieldset @(Model.Disabled ? "disabled" : "")>
-
-        <form-group-textarea 
-            label="The problem:" 
-            placeholder="The problem is... " 
-            asp-for="Form.TheProblem" 
-            autofocus />
-
-        @for(var i = 0; i < 3; ++i) 
-        {
-            <fieldset>
-                <legend><small>Option @(i + 1):</small></legend>
-                <div class="form-row">
-                    <div class="col">
-                        <form-group-textarea 
-                            asp-for="Form.Options[i].Action"
-                            placeholder="Action" />
-                    </div>
-                    <div class="col">
-                        <form-group-textarea 
-                            asp-for="Form.Options[i].Advantages"
-                            placeholder="Advantages" />
-                    </div>
-                    <div class="col">
-                        <form-group-textarea 
-                            asp-for="Form.Options[i].Disadvantages"
-                            placeholder="Disadvantages" />
-                    </div>
-                </div>
-            </fieldset>
-        }
-
+@for(var i = 0; i < 3; ++i) 
+{
+    <fieldset>
+        <legend><small>Option @(i + 1):</small></legend>
+        <div class="form-row">
+            <div class="col">
+                <form-group-textarea 
+                    asp-for="Form.Options[i].Action"
+                    placeholder="Action" />
+            </div>
+            <div class="col">
+                <form-group-textarea 
+                    asp-for="Form.Options[i].Advantages"
+                    placeholder="Advantages" />
+            </div>
+            <div class="col">
+                <form-group-textarea 
+                    asp-for="Form.Options[i].Disadvantages"
+                    placeholder="Disadvantages" />
+            </div>
+        </div>
     </fieldset>
-    <partial name="_ToolsPageButtonGroup"></partial>
-</form>
+}
