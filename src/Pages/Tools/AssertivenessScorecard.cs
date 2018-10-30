@@ -1,5 +1,6 @@
 namespace socialarts.club.Pages.Tools
 {
+    // TODO Consider using a *FormModel or *Model suffix on these classes.
     public class AssertivenessScorecard
     {
         public string Date { get; set; }
