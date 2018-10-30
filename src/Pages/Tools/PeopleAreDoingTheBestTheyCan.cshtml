@@ -2,21 +2,38 @@
 @model PeopleAreDoingTheBestTheyCanModel
 @{
     ViewData["Title"] = "People Are Doing the Best They Can";
+    // 
+    ViewData["Year"] = "2000";
+    ViewData["Author"] = "McKay";
+    ViewData["Book"] = "The Anger Control Workbook";
 }
 
-<p>Adapted from <citation author="McKay" year="2000">The Anger Control Workbook</citation>.</p>
-
-<form class="sa-form-tools">
-    <p>Think back to something you did that really angered another person. Now write down how the following influenced your behavior and choices:</p>
-    <form-group-textarea label="Your needs at that moment:" autofocus />
-    <form-group-textarea label="Your fears that that moment:"/>
-    <form-group-textarea label="Your pain and stress that that moment:"/>
-    <form-group-textarea label="Any personal history or experiences that influenced your behavior or choices:"/>
-    <form-group-textarea label="What you knew or didn't know at the time:"/>
-    <form-group-textarea label="Your skills or lack of skills that influenced your choice at the time:"/>
-    <form-group-textarea label="Any physical or emotional limitations that influenced you to act as you did:"/>
-    <form-group-textarea label="Personal values or beliefs that influenced your behavior:"/>
-    <form-group-textarea label="The prospects of rewards or pleasures that influenced your choice at the moment:"/>
-    <form-group-textarea label="Resources that you did or didn't have at that moment that could have influenced your choice:"/>
-    <button type="submit" class="btn btn-primary" disabled>Download as Pdf (Coming Soon)</button>
-</form>
+<p>Think back to something you did that really angered another person. Now write down how the following influenced your behavior and choices:</p>
+<form-group-textarea 
+    label="Your needs at that moment:" 
+    asp-for="Form.Needs" autofocus />
+<form-group-textarea 
+    label="Your fears that that moment:" 
+    asp-for="Form.Fears" />
+<form-group-textarea 
+    label="Your pain and stress that that moment:" asp-for="Form.Pain" />
+<form-group-textarea 
+    label="Any personal history or experiences that influenced your behavior or choices:" 
+    asp-for="Form.History" />
+<form-group-textarea 
+    label="What you knew or didn't know at the time:" asp-for="Form.Knowledge" />
+<form-group-textarea 
+    label="Your skills or lack of skills that influenced your choice at the time:" 
+    asp-for="Form.Skills" />
+<form-group-textarea
+     label="Any physical or emotional limitations that influenced you to act as you did:"
+     asp-for="Form.Limitations" />
+<form-group-textarea 
+    label="Personal values or beliefs that influenced your behavior:" 
+    asp-for="Form.Values" />
+<form-group-textarea 
+    label="The prospects of rewards or pleasures that influenced your choice at the moment:" 
+    asp-for="Form.Rewards" />
+<form-group-textarea 
+    label="Resources that you did or didn't have at that moment that could have influenced your choice:" 
+    asp-for="Form.Resources" />

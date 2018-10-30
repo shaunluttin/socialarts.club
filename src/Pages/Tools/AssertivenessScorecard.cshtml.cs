@@ -12,6 +12,7 @@ using socialarts.club.ViewComponents.Extensions;
 
 namespace socialarts.club.Pages.Tools
 {
+    // TODO Rename these with the suffix *PageModel, maybe.
     public class AssertivenessScorecardModel : ToolsPageModel<AssertivenessScorecard>
     {
         public AssertivenessScorecardModel(
