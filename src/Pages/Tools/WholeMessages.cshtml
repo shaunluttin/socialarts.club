@@ -1,0 +1,11 @@
+@page
+@model WholeMessagesModel
+@{
+    ViewData["Title"] = "Whole Messages";
+}
+
+<form-group-textarea label="Statement:" placeholder="The statement that I am tempted to make is..." asp-for="Form.Statement" autofocus />
+<form-group-textarea label="Observations:" asp-for="Form.Observations" />
+<form-group-textarea label="Thoughts:" asp-for="Form.Thoughts" />
+<form-group-textarea label="Feelings:" asp-for="Form.Feelings" />
+<form-group-textarea label="Needs:" asp-for="Form.Needs" />
