@@ -17,7 +17,7 @@ namespace socialarts.club.Pages.Tools
     {
         public override string CitationAuthor => "Paterson";
 
-        public override string CitationYear => "2000";
+        public override int CitationYear => 2000;
 
         public List<SelectListItem> AssessmentOptions { get; set; }
             = new List<SelectListItem>

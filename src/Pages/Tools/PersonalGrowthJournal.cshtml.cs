@@ -12,7 +12,7 @@ namespace socialarts.club.Pages.Tools
     {
         public override string CitationAuthor => "Alberti";
 
-        public override string CitationYear => "1995";
+        public override int CitationYear => 1995;
 
         public PersonalGrowthJournalModel(
             ApplicationDbContext db,

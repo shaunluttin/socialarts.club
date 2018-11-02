@@ -1,0 +1,12 @@
+﻿@page
+@model RealityQuestionsModel
+@{
+    ViewData["Title"] = "Reality Questions";
+}
+
+<form-group-textarea label="Depressive Thought:" asp-for="Form.Thought" autofocus />
+<form-group-textarea label="Can I get more evidence, like asking someone about the situation?" asp-for="Form.Evidence" />
+<form-group-textarea label="Would most people agree with this thought? If not, what would be a more realistic thought?" asp-for="Form.Agreement" />
+<form-group-textarea label="What would I say to a friend in a similar situation?" asp-for="Form.Friend" />
+<form-group-textarea label="What will happen if I continue to think in this way?" asp-for="Form.Implications" />
+<form-group-textarea label="What is another way of thinking that is more encouraging or useful?" asp-for="Form.Alternative" />

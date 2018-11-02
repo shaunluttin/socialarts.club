@@ -12,7 +12,7 @@ namespace socialarts.club.Pages.Tools
     {
         public override string CitationAuthor => "Bilsker";
 
-        public override string CitationYear => "2009";
+        public override int CitationYear => 2009;
 
         public CostBenefitAnalysisModel(
             ApplicationDbContext db,

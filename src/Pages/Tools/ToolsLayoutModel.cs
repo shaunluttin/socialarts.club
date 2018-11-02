@@ -9,6 +9,6 @@ namespace socialarts.club.Pages.Tools
 
         public abstract string CitationAuthor { get; }
 
-        public abstract string CitationYear { get; }
+        public abstract int CitationYear { get; }
     }
 }

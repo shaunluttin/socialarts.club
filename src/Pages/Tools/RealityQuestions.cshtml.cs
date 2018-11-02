@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -8,14 +8,14 @@ using socialarts.club.Data;
 
 namespace socialarts.club.Pages.Tools
 {
-    public class PeopleAreDoingTheBestTheyCanModel : ToolsPageModel<PeopleAreDoingTheBestTheyCan>
+    public class RealityQuestionsModel : ToolsPageModel<RealityQuestions>
     {
-        public override string CitationAuthor => "McKay";
+        public override string CitationAuthor => "Bilsker";
 
-        public override int CitationYear => 2000;
+        public override int CitationYear => 2009;
 
-        public PeopleAreDoingTheBestTheyCanModel(
-            ApplicationDbContext db,
+        public RealityQuestionsModel(
+            ApplicationDbContext db, 
             UserManager<IdentityUser> userManager) : base(db, userManager)
         {
         }
