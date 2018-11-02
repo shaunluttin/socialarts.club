@@ -27,15 +27,6 @@ namespace socialarts.club.TagHelpers
             var slug = $"{Author}-{Year}".ToLowerInvariant();
             var entry = await dbContext.BibliographyEntry.SingleAsync(e => e.Slug == slug);
 
-            System.Console.WriteLine("==================");
-            System.Console.WriteLine("==================");
-            System.Console.WriteLine(Author);
-            System.Console.WriteLine(Year);
-            System.Console.WriteLine(slug);
-            System.Console.WriteLine(entry.Title);
-            System.Console.WriteLine("==================");
-            System.Console.WriteLine("==================");
-
             var relativePath = $"{ReferencesPath}/{entry.Slug}";
 
             // TODO Consider introducing a entry.ShortTitle for citation readability.
