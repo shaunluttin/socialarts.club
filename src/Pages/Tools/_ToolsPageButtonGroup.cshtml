@@ -1,11 +1,9 @@
-<!-- TODO Add a stronger type. -->
-@model dynamic
+@model ToolsLayoutModel
 
-<!-- TODO Move to partial view or view component. -->
 @if(Model.Disabled) 
 {
     <a class="btn btn-info" asp-area="me" asp-page="/Index">View History</a>
-    <a class="btn btn-secondary" asp-page="">Create New</a>
+    <a class="btn btn-secondary" asp-page="" asp-route-id="">Create New</a>
 } 
 else 
 {
