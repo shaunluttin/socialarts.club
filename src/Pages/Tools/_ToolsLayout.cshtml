@@ -1,12 +1,10 @@
+@model ToolsLayoutModel
+
 @{
     Layout = "_Layout";
-
-    var author = ViewData["Author"];
-    var year = ViewData["Year"];
-    var title = ViewData["Title"];
 }
 
-<p>Adapted from <citation author="@author" year="@year">@title</citation>.</p>
+<p>Adapted from <citation author="@Model.CitationAuthor" year="@Model.CitationYear" />.</p>
 
 <form class="sa-form-tools" method="POST">
     <fieldset @(Model.Disabled ? "disabled" : "")>

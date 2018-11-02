@@ -15,11 +15,9 @@ namespace socialarts.club.Pages.Tools
     // TODO Rename these with the suffix *PageModel, maybe.
     public class AssertivenessScorecardModel : ToolsPageModel<AssertivenessScorecard>
     {
-        public AssertivenessScorecardModel(
-            ApplicationDbContext db,
-            UserManager<IdentityUser> userManager) : base(db, userManager)
-        {
-        }
+        public override string CitationAuthor => "Paterson";
+
+        public override string CitationYear => "2000";
 
         public List<SelectListItem> AssessmentOptions { get; set; }
             = new List<SelectListItem>
@@ -29,5 +27,12 @@ namespace socialarts.club.Pages.Tools
                 new SelectListItem("Aggressive", "aggressive"),
                 new SelectListItem("Passive/Aggressive", "p/a"),
             };
+
+        public AssertivenessScorecardModel(
+            ApplicationDbContext db,
+            UserManager<IdentityUser> userManager) : base(db, userManager)
+        {
+        }
+
     }
 }

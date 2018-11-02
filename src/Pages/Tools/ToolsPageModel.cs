@@ -7,87 +7,88 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Newtonsoft.Json;
 using socialarts.club.Data;
 
-public abstract class ToolsPageModel<T> : PageModel
+namespace socialarts.club.Pages.Tools
 {
-    [BindProperty]
-    public T Form { get; set; }
-
-    public bool Disabled { get; set; }
-
-    protected readonly UserManager<IdentityUser> userManager;
-
-    private ApplicationDbContext db { get; }
-
-    public ToolsPageModel(
-        ApplicationDbContext db,
-        UserManager<IdentityUser> userManager)
+    public abstract class ToolsPageModel<T> : ToolsLayoutModel
     {
-        this.userManager = userManager;
-        this.db = db;
-    }
+        private ApplicationDbContext db { get; }
 
-    public async Task OnGetAsync(int id = 0)
-    {
-        var doc = await GetToolsDocument(id);
+        protected readonly UserManager<IdentityUser> userManager;
 
-        if (doc == null)
+        [BindProperty]
+        public T Form { get; set; }
+
+        public ToolsPageModel(
+            ApplicationDbContext db,
+            UserManager<IdentityUser> userManager)
         {
-            // TODO return 404 not found (or other appropriate status).
-            return;
+            this.userManager = userManager;
+            this.db = db;
         }
 
-        var currentUserId = GetCurrentUserId();
-        if (doc.OwnerId != currentUserId)
+        public async Task OnGetAsync(int id = 0)
         {
-            // TODO return 403 forbidden (or other appropriate status).
-            return;
+            var doc = await GetToolsDocument(id);
+
+            if (doc == null)
+            {
+                // TODO return 404 not found (or other appropriate status).
+                return;
+            }
+
+            var currentUserId = GetCurrentUserId();
+            if (doc.OwnerId != currentUserId)
+            {
+                // TODO return 403 forbidden (or other appropriate status).
+                return;
+            }
+
+            Disabled = true;
+            Form = JsonConvert.DeserializeObject<T>(doc.Json);
         }
 
-        Disabled = true;
-        Form = JsonConvert.DeserializeObject<T>(doc.Json);
-    }
-
-    public async Task<IActionResult> OnPostAsync()
-    {
-        var doc = await SaveToolsDocument();
-
-        // Post/Redirect/Get to avoid multiple form submission
-        return RedirectToPage(HttpContext.Request.Path, new { doc.Id });
-    }
-
-    private async Task<ToolsDocument> SaveToolsDocument()
-    {
-        var currentUserId = GetCurrentUserId();
-
-        // ~/Tools/AssertivenessScorecard
-        var razorPage = PageContext.ActionDescriptor.DisplayName;
-        var name = razorPage.Split('/').Last();
-
-        var doc = new ToolsDocument
+        public async Task<IActionResult> OnPostAsync()
         {
-            Name = name,
-            TemplateUrlPath = razorPage,
-            OwnerId = currentUserId,
-            Json = JsonConvert.SerializeObject(Form),
-        };
+            var doc = await SaveToolsDocument();
 
-        var result = db.ToolsDocument.Add(doc);
-        await db.SaveChangesAsync();
+            // Post/Redirect/Get to avoid multiple form submission
+            return RedirectToPage(HttpContext.Request.Path, new { doc.Id });
+        }
 
-        return doc;
-    }
+        private async Task<ToolsDocument> SaveToolsDocument()
+        {
+            var currentUserId = GetCurrentUserId();
 
-    private async Task<ToolsDocument> GetToolsDocument(int id)
-    {
-        if (id <= 0) return null;
+            // ~/Tools/AssertivenessScorecard
+            var razorPage = PageContext.ActionDescriptor.DisplayName;
+            var name = razorPage.Split('/').Last();
 
-        var doc = await db.ToolsDocument.FindAsync(id);
+            var doc = new ToolsDocument
+            {
+                Name = name,
+                TemplateUrlPath = razorPage,
+                OwnerId = currentUserId,
+                Json = JsonConvert.SerializeObject(Form),
+            };
 
-        return doc;
-    }
+            var result = db.ToolsDocument.Add(doc);
+            await db.SaveChangesAsync();
 
-    private string GetCurrentUserId()
-    {
-        return userManager.GetUserId(User) ?? "Anonymous";
+            return doc;
+        }
+
+        private async Task<ToolsDocument> GetToolsDocument(int id)
+        {
+            if (id <= 0) return null;
+
+            var doc = await db.ToolsDocument.FindAsync(id);
+
+            return doc;
+        }
+
+        private string GetCurrentUserId()
+        {
+            return userManager.GetUserId(User) ?? "Anonymous";
+        }
     }
 }

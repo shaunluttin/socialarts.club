@@ -5,6 +5,7 @@ using socialarts.club.Data;
 
 namespace socialarts.club.TagHelpers
 {
+    [HtmlTargetElement("citation", TagStructure = TagStructure.WithoutEndTag)]
     public class CitationTagHelper : TagHelper {
 
         private readonly ApplicationDbContext dbContext;
@@ -20,22 +21,22 @@ namespace socialarts.club.TagHelpers
 
         public string Year { get; set; }
 
-        public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output) {
+        public override Task ProcessAsync(TagHelperContext context, TagHelperOutput output) {
 
             var slug = $"{Author}-{Year}".ToLowerInvariant();
             var entry = dbContext.BibliographyEntry.Single(e => e.Slug == slug);
 
-            var childContent = await output.GetChildContentAsync();
-            var shortTitle = childContent.GetContent();
-
             var relativePath = $"{ReferencesPath}/{entry.Slug}";
 
-            var citeElement = $"<cite title='{entry.Title}'>{shortTitle}</cite>";
+            // TODO Consider introducing a entry.ShortTitle for citation readability.
+            var citeElement = $"<cite title='{entry.Title}'>{entry.Title}</cite>";
             var linkElement = $"<a href='{relativePath}'>{citeElement}</a>";
             var spanElement = $"<span>({Author}, {Year})</span>";
             var content = $"{linkElement} {spanElement}";
 
             output.Content.AppendHtml(content);
+
+            return Task.CompletedTask;
         }
     }
 }

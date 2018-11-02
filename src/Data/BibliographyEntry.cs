@@ -20,15 +20,4 @@ namespace socialarts.club.Data
         // for anchor tags
         public string Slug { get; set; }
     }
-
-    public class BibliographyWebDocument : BibliographyEntry
-    {
-        public string RetrievedFrom { get; set; }
-    }
-
-    public class BibliographyBook : BibliographyEntry 
-    {
-        // TODO (maybe): Break Publisher into two properties: Location & Publisher
-        public string Publisher { get; set; }
-    }
 }
