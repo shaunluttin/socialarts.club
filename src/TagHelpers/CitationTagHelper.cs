@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Razor.TagHelpers;
+using Microsoft.EntityFrameworkCore;
 using socialarts.club.Data;
 
 namespace socialarts.club.TagHelpers
@@ -21,10 +22,19 @@ namespace socialarts.club.TagHelpers
 
         public string Year { get; set; }
 
-        public override Task ProcessAsync(TagHelperContext context, TagHelperOutput output) {
+        public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output) {
 
             var slug = $"{Author}-{Year}".ToLowerInvariant();
-            var entry = dbContext.BibliographyEntry.Single(e => e.Slug == slug);
+            var entry = await dbContext.BibliographyEntry.SingleAsync(e => e.Slug == slug);
+
+            System.Console.WriteLine("==================");
+            System.Console.WriteLine("==================");
+            System.Console.WriteLine(Author);
+            System.Console.WriteLine(Year);
+            System.Console.WriteLine(slug);
+            System.Console.WriteLine(entry.Title);
+            System.Console.WriteLine("==================");
+            System.Console.WriteLine("==================");
 
             var relativePath = $"{ReferencesPath}/{entry.Slug}";
 
@@ -34,9 +44,8 @@ namespace socialarts.club.TagHelpers
             var spanElement = $"<span>({Author}, {Year})</span>";
             var content = $"{linkElement} {spanElement}";
 
-            output.Content.AppendHtml(content);
-
-            return Task.CompletedTask;
+            output.TagMode = TagMode.StartTagAndEndTag;
+            output.Content.SetHtmlContent(content);
         }
     }
 }
