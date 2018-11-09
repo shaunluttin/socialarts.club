@@ -6,6 +6,10 @@ namespace socialarts.club.ViewComponents.Extensions
         {
             var output = Newtonsoft.Json.JsonConvert.SerializeObject(obj, Newtonsoft.Json.Formatting.Indented);
             System.Console.WriteLine("--------------");
+            System.Console.WriteLine("--------------");
+            System.Console.WriteLine("--------------");
+            System.Console.WriteLine("--------------");
+            System.Console.WriteLine("--------------");
             System.Console.WriteLine(output);
             return obj;
         }

@@ -30,7 +30,7 @@ namespace socialarts.club.ViewComponents
             _provider = provider;
         }
 
-        public IViewComponentResult Invoke()
+        public IViewComponentResult Invoke(string viewName)
         {
             var allActions = _provider.ActionDescriptors.Items;
 
@@ -64,7 +64,7 @@ namespace socialarts.club.ViewComponents
                     Path = a.ViewEnginePath,
                 });
 
-            var dropDownItems = nestingGroups
+            var childItems = nestingGroups
                 .Where(g => g.Key == 2)
                 .SelectMany(g => g)
                 .GroupBy(a => a.ViewEnginePath.Split("/").Skip(1).First())
@@ -80,10 +80,10 @@ namespace socialarts.club.ViewComponents
             var model = new RazorPageNavItemsViewComponentModel
             {
                 RootNavItems = rootItems,
-                DropDownNavItems = dropDownItems
+                ChildNavItems = childItems
             };
 
-            return View(model);
+            return View(viewName, model);
         }
     }
 }
