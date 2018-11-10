@@ -1,26 +1,39 @@
 @model socialarts.club.ViewComponents.RazorPageNavItemsViewComponentModel
 
-@foreach(var item in @Model.RootNavItems)
-{
-    <li class="nav-item">
-        <a class="nav-link" href="@item.Path">@item.Title</a>
-    </li>
+<style type="text/css">
+
+/* TODO: Move this into the SCSS file. */
+
+nav.tools-subnav-items a {
+  color:white;
+  background-color:#6e9ec1;
+
+  float:left;
+
+  margin-right:20px;
+  margin-bottom:20px;
+  height:250px;
+  width:250px;
+
+  display:flex;
+  flex-flow:column;
+  justify-content:center;
+  align-items:center;
 }
-@foreach(var item in @Model.ChildNavItems)
-{
-    <li class="nav-item dropdown">
-      <a 
-        class="nav-link dropdown-toggle" 
-        href="#" id="navbarDropdown" 
-        role="button" 
-        data-toggle="dropdown" 
-        aria-haspopup="true" 
-        aria-expanded="false">@item.Key</a>
-      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-      @foreach(var subItem in item.Value)
-      {
-        <a class="dropdown-item" href="@subItem.Path">@subItem.Title</a>
-      }
-      </div>
-    </li>
+
+nav.tools-subnav-items a:hover {
+  outline:thick solid #0055a5;
 }
+
+</style>
+
+@{
+  var toolItems = @Model.ItemsThatHaveChildren.Single(item => item.Key == "Tools");
+}
+
+<nav class="tools-subnav-items">
+    @foreach(var item in toolItems.Value)
+    {
+      <a href="@item.Path">@item.Title</a>
+    }
+</nav>

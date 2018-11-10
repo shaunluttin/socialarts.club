@@ -5,10 +5,10 @@ namespace socialarts.club.ViewComponents
 {
     public class RazorPageNavItemsViewComponentModel
     {
-        public Dictionary<string, IEnumerable<NavItemViewModel>> ChildNavItems 
+        public Dictionary<string, IEnumerable<NavItemViewModel>> ItemsThatHaveChildren 
             = new Dictionary<string, IEnumerable<NavItemViewModel>>();
 
-        public IEnumerable<NavItemViewModel> RootNavItems =
+        public IEnumerable<NavItemViewModel> ItemsWithoutChildren =
             Enumerable.Empty<NavItemViewModel>();
     }
 }

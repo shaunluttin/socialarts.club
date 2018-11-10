@@ -64,8 +64,8 @@ namespace socialarts.club.ViewComponents
 
             var model = new RazorPageNavItemsViewComponentModel
             {
-                RootNavItems = rootItems,
-                ChildNavItems = childItems
+                ItemsWithoutChildren = rootItems,
+                ItemsThatHaveChildren = childItems
             };
 
             return View(viewName, model);

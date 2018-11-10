@@ -7,7 +7,7 @@
     "Privacy",
   };
 
-  var rootItems = @Model.RootNavItems.Where(item => !excludedItems.Contains(item.Title));
+  var rootItems = @Model.ItemsWithoutChildren.Where(item => !excludedItems.Contains(item.Title));
 }
 
 @foreach(var item in rootItems)
@@ -17,7 +17,7 @@
     </li>
 }
 
-@foreach(var item in @Model.ChildNavItems)
+@foreach(var item in @Model.ItemsThatHaveChildren)
 {
     <li class="nav-item dropdown">
       <a 
@@ -27,11 +27,13 @@
         data-toggle="dropdown" 
         aria-haspopup="true" 
         aria-expanded="false">@item.Key</a>
+
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         @foreach(var subItem in item.Value)
         {
           <a class="dropdown-item" href="@subItem.Path">@subItem.Title</a>
         }
       </div>
+
     </li>
 }
