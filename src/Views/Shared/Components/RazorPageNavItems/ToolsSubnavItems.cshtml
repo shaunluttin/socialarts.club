@@ -1,37 +1,10 @@
 @model socialarts.club.ViewComponents.RazorPageNavItemsViewComponentModel
 
-<style type="text/css">
-
-/* TODO: Move this into the SCSS file. */
-
-nav.tools-subnav-items a {
-  color:white;
-  background-color:#6e9ec1;
-
-  float:left;
-
-  margin-right:20px;
-  margin-bottom:20px;
-  height:250px;
-  width:250px;
-
-  display:flex;
-  flex-flow:column;
-  justify-content:center;
-  align-items:center;
-}
-
-nav.tools-subnav-items a:hover {
-  outline:thick solid #0055a5;
-}
-
-</style>
-
 @{
   var toolItems = @Model.ItemsThatHaveChildren.Single(item => item.Key == "Tools");
 }
 
-<nav class="tools-subnav-items">
+<nav class="sa-tools-subnav-items">
     @foreach(var item in toolItems.Value)
     {
       <a href="@item.Path">@item.Title</a>
