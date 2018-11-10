@@ -1,11 +1,22 @@
 @model socialarts.club.ViewComponents.RazorPageNavItemsViewComponentModel
 
-@foreach(var item in @Model.RootNavItems)
+@{
+  var excludedItems = new List<string> {
+    "Error",
+    "Index",
+    "Privacy",
+  };
+
+  var rootItems = @Model.RootNavItems.Where(item => !excludedItems.Contains(item.Title));
+}
+
+@foreach(var item in rootItems)
 {
     <li class="nav-item">
         <a class="nav-link" href="@item.Path">@item.Title</a>
     </li>
 }
+
 @foreach(var item in @Model.ChildNavItems)
 {
     <li class="nav-item dropdown">
@@ -17,10 +28,10 @@
         aria-haspopup="true" 
         aria-expanded="false">@item.Key</a>
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-      @foreach(var subItem in item.Value)
-      {
-        <a class="dropdown-item" href="@subItem.Path">@subItem.Title</a>
-      }
+        @foreach(var subItem in item.Value)
+        {
+          <a class="dropdown-item" href="@subItem.Path">@subItem.Title</a>
+        }
       </div>
     </li>
 }

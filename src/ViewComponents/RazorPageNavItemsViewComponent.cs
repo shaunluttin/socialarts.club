@@ -16,13 +16,6 @@ namespace socialarts.club.ViewComponents
     // TODO Reconsider coupling the nabar to the file system.
     public class RazorPageNavItemsViewComponent : ViewComponent
     {
-        private readonly List<string> ExcludedTitles = new List<string> {
-            "", 
-            "Index", 
-            "Error",
-            "Privacy",
-        };
-
         private readonly IActionDescriptorCollectionProvider _provider;
 
         public RazorPageNavItemsViewComponent(IActionDescriptorCollectionProvider provider)
@@ -44,15 +37,7 @@ namespace socialarts.club.ViewComponents
                 .Where(g => g.Key == null)
                 .SelectMany(g => g);
 
-            var defaultAreaActionsToUse = defaultAreaActions
-                .Where(a => {
-                    // TODO Factor out the splitting; 
-                    // TODO Perhaps do the splitting only once for better perf.
-                    var title = a.ViewEnginePath.Split("/").Skip(1).Last();
-                    return !ExcludedTitles.Contains(title);
-                });
-
-            var nestingGroups = defaultAreaActionsToUse
+            var nestingGroups = defaultAreaActions
                 .GroupBy(a => a.ViewEnginePath.Split("/").Skip(1).Count());
 
             var rootItems = nestingGroups
