@@ -1,0 +1,17 @@
+{
+  "name": "web-crypto",
+  "version": "0.0.1",
+  "description": "Utility to encrypt and decrypt end-user data.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "encryption"
+  ],
+  "author": "Shaun Luttin",
+  "license": "MIT",
+  "dependencies": {
+    "mocha": "^5.2.0"
+  }
+}
