@@ -28,7 +28,7 @@ describe('window.crypto.subtle exploratory testing', () => {
             // 3. Generate/fetch the cryptographic keys
             //
 
-            await window.crypto.subtle.generateKey(
+            window.crypto.subtle.generateKey(
                 {
                     name: 'RSA-OAEP',
                     modulusLength: 2048,
@@ -40,28 +40,32 @@ describe('window.crypto.subtle exploratory testing', () => {
                     'encrypt',
                     'decrypt'
                 ]
-            ).then(keyPair => {
+            ).then(async keyPair => {
 
                 //
                 // 4. Run the encryption algorithm with the key and data.
                 //
 
-                const encryptedMessage = window.crypto.subtle.encrypt(
+                const encryptedMessage = await window.crypto.subtle.encrypt(
                     algorithm,
                     keyPair.publicKey,
                     messageUTF8);
 
-                console.log(encryptedMessage);
+                //
+                // 5. Run the decryption algorithm with the key and cyphertext.
+                //
 
-                const decryptedMessage = window.crypto.subtle.decrypt(
+                const decryptedMessage = await window.crypto.subtle.decrypt(
                     algorithm,
                     keyPair.privateKey,
                     encryptedMessage);
 
+                //
+                // 6. Decode the decryped data.
+                //
+
                 const decoder = new TextDecoder();
                 const messageDecryptedDOMString = decoder.decode(decryptedMessage);
-
-                console.log(messageDecryptedDOMString);
 
                 // assert
                 assert.equal(
