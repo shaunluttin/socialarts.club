@@ -13,6 +13,12 @@ Open test.html in Firefox to view the test results.
 
 This could be a template method to support a variety of algorithms.
 
+# Questions
+
+Why encode to bits before encypting the text?
+
+* Most if not all encryption algorithms operate on bits not characters.
+
 # WebCrypto API
 
 https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API

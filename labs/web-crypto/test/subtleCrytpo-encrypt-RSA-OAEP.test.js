@@ -1,6 +1,23 @@
 //
 // See https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/encrypt
 //
+
+//
+// Takes a string and encodes it as a UTF-8 array of bytes.
+//
+const encodeStringToUTF8 = (domString) => {
+    const encoder = new TextEncoder();
+    return encoder.encode(domString);
+}
+
+//
+// Takes an UFT-8 array of bytes and returns a string.
+//
+const decodeStringFromUTF8 = (array) => {
+    const decoder = new TextDecoder();
+    return decoder.decode(array);
+}
+
 describe('window.crypto.subtle exploratory testing', () => {
     describe('encrypting and decrypting a message', () => {
         it('works with RSA-OAEP', async () => {
@@ -13,8 +30,9 @@ describe('window.crypto.subtle exploratory testing', () => {
             // 1. encode the original data
             //
 
-            const encoder = new TextEncoder();
-            const messageUTF8 = encoder.encode(messageOriginalDOMString);
+            const messageUTF8 = encodeStringToUTF8(messageOriginalDOMString);
+
+            console.log(messageUTF8);
 
             //
             // 2. configure the encryption algorithm to use
@@ -28,7 +46,7 @@ describe('window.crypto.subtle exploratory testing', () => {
             // 3. Generate/fetch the cryptographic keys
             //
 
-            window.crypto.subtle.generateKey(
+            await window.crypto.subtle.generateKey(
                 {
                     name: 'RSA-OAEP',
                     modulusLength: 2048,
@@ -64,8 +82,7 @@ describe('window.crypto.subtle exploratory testing', () => {
                 // 6. Decode the decryped data.
                 //
 
-                const decoder = new TextDecoder();
-                const messageDecryptedDOMString = decoder.decode(decryptedMessage);
+                const messageDecryptedDOMString = decodeStringFromUTF8(decryptedMessage);
 
                 // assert
                 assert.equal(
