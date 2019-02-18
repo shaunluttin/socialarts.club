@@ -1,3 +1,6 @@
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+
 @model socialarts.club.ViewComponents.RazorPageNavItemsViewComponentModel
 
 @{
@@ -8,6 +11,7 @@
   };
 
   var rootItems = @Model.ItemsWithoutChildren.Where(item => !excludedItems.Contains(item.Title));
+
 }
 
 @foreach(var item in rootItems)
@@ -20,12 +24,12 @@
 @foreach(var item in @Model.ItemsThatHaveChildren)
 {
     <li class="nav-item dropdown">
-      <a 
-        class="nav-link dropdown-toggle" 
-        href="#" id="navbarDropdown" 
-        role="button" 
-        data-toggle="dropdown" 
-        aria-haspopup="true" 
+      <a
+        class="nav-link dropdown-toggle"
+        href="#" id="navbarDropdown"
+        role="button"
+        data-toggle="dropdown"
+        aria-haspopup="true"
         aria-expanded="false">@item.Key</a>
 
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -36,4 +40,12 @@
       </div>
 
     </li>
+}
+
+<!-- Logged in menu items -->
+@if (SignInManager.IsSignedIn(User))
+{
+  <li class="nav-item">
+    <a class="nav-link" href="/me">My Data</a>
+  </li>
 }
