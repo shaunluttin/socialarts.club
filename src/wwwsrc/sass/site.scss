@@ -3,7 +3,7 @@
 // npm run build
 //
 
-@import "~bootstrap/scss/bootstrap";
+@import '~bootstrap/scss/bootstrap';
 
 $primary: #6e9ec1;
 $primaryContrast: $white;
@@ -45,7 +45,7 @@ $primaryContrast: $white;
     align-items: center;
     &:hover {
       outline: thick solid darken($primary, 20);
-      text-decoration:none;
+      text-decoration: none;
     }
   }
 }
@@ -60,4 +60,8 @@ legend small {
 
 ::placeholder {
   font-style: italic;
+}
+
+textarea {
+  overflow: hidden;
 }

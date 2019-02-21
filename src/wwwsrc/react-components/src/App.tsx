@@ -1,16 +1,15 @@
 import * as React from 'react';
-import ToolsList, { Tool } from "./components/ToolsList";
+import ToolsList, { Tool } from './components/ToolsList';
 
 // tslint:disable-next-line:interface-name
 interface Props {
-  getTools: () => Promise<Tool[]>
+  getTools: () => Promise<Tool[]>;
 }
 
 class App extends React.Component<Props> {
-
   public state = {
     tools: [] as Tool[]
-  }
+  };
 
   constructor(props: any) {
     super(props);
