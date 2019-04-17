@@ -11,18 +11,9 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="Microsoft.AspNetCore.SpaServices" Version="2.1.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.1.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.0" PrivateAssets="All" />
     <PackageReference Include="OpenIddict" Version="2.0.0-rc3-final" />
     <PackageReference Include="OpenIddict.EntityFrameworkCore" Version="2.0.0-rc3-final" />
   </ItemGroup>
-
-  <!-- We do not run this in Debug configuration, because it slows down the `dotnet watch run` process. -->
-  <Target Name="NodeJs_RunScripts_Release" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
-    <Message Importance="High" Text="Running NodeJS $(Configuration) scripts..."></Message>
-    <Exec Command="npm install"></Exec>
-    <Exec Command="npm run release"></Exec>
-  </Target>
-
 </Project>

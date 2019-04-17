@@ -3,8 +3,6 @@
 ### Run Locally
 
     cd src
-    npm install
-    npm run build
     dotnet run
 
 Then visit localhost:5000
