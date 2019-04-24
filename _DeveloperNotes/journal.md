@@ -1,5 +1,7 @@
 Tuesday 23 April 2019
 
+It might be best to delete all the Login/Register stuff completely and simply save the form with a GUID.
+
 We can scaffold the identity views like this (and keep only the .cshtml files)
 
     dotnet aspnet-codegenerator identity --files Account.Login 
