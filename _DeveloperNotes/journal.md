@@ -1,3 +1,8 @@
+Tuesday 23 April 2019
+
+We can scaffold the identity views like this (and keep only the .cshtml files)
+
+    dotnet aspnet-codegenerator identity --files Account.Login 
 
 Tuesday 28 August 2018
 
