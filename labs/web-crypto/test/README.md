@@ -2,6 +2,8 @@
 
 Open test.html in Firefox to view the test results.
 
+    C:\dev\shaunluttin\socialarts.club\labs\web-crypto\test\test.html
+
 # Standard Encrypt/Decrypt Steps
 
 1. Encode the original data.
