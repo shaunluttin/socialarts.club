@@ -4,13 +4,16 @@
     ViewData["Title"] = "Personal Growth Journal";
 }
 
+<p>You have <span id='count'></span> journal entries.</p>
+
 <script src="oidc-client.js"></script>
 <script src="http-client.js"></script>
 <script type="text/javascript">
 
-    getWithToken('api/tools').then((response) => {
-        console.log(response);
-        response.json().then(json => console.log(json));
-    }); 
+    getWithToken('api/tools')
+        .then((response) => response.json())
+        .then((json) => {
+            document.getElementById('count').innerText = json.length;
+        });
 
 </script>
