@@ -40,13 +40,15 @@ namespace socialarts.club
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.Configure<IdentityOptions>(options => {
+            services.Configure<IdentityOptions>(options =>
+            {
                 options.ClaimsIdentity.UserNameClaimType = OpenIdConnectConstants.Claims.Name;
                 options.ClaimsIdentity.UserIdClaimType = OpenIdConnectConstants.Claims.Subject;
                 options.ClaimsIdentity.RoleClaimType = OpenIdConnectConstants.Claims.Role;
             });
 
-            services.AddDbContext<ApplicationDbContext>(options => {
+            services.AddDbContext<ApplicationDbContext>(options =>
+            {
 
                 options.UseSqlite(Configuration.GetConnectionString("DefaultConnection"));
                 options.UseOpenIddict();
@@ -66,12 +68,14 @@ namespace socialarts.club
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddOpenIddict()
-                .AddCore(options => {
+                .AddCore(options =>
+                {
                     options
                         .UseEntityFrameworkCore()
                         .UseDbContext<ApplicationDbContext>();
                 })
-                .AddServer(options => {
+                .AddServer(options =>
+                {
                     options.UseMvc();
                     options.EnableAuthorizationEndpoint("/connect/authorize");
 
@@ -89,7 +93,6 @@ namespace socialarts.club
                 .AddRazorPagesOptions(options =>
                 {
                     options.Conventions.AddFolderRouteParameter("/Tools", "{id:int?}");
-                    options.Conventions.AuthorizeAreaFolder("Me", "/");
                 })
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace socialarts.club.Pages
+namespace socialarts.club.Areas.PersonalGrowthJournal.Pages
 {
-    public class MyToolsModel : PageModel
+    public class IndexModel : PageModel
     {
         public string Message { get; set; }
 

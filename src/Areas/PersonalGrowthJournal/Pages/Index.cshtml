@@ -1,0 +1,16 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Personal Growth Journal";
+}
+
+<script src="oidc-client.js"></script>
+<script src="http-client.js"></script>
+<script type="text/javascript">
+
+    getWithToken('api/tools').then((response) => {
+        console.log(response);
+        response.json().then(json => console.log(json));
+    }); 
+
+</script>
