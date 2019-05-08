@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace socialarts.club.Areas.PersonalGrowthJournal.Pages
+namespace socialarts.club.Areas.MyProgressJournal.Pages
 {
     public class IndexModel : PageModel
     {

@@ -34,8 +34,8 @@ namespace socialarts.club.Data
                 DisplayName = clientId,
                 // TODO: Read this from configuration.
                 RedirectUris = {
-                    new Uri("https://localhost:5001/PersonalGrowthJournal"),
-                    new Uri("https://socialarts.club/PersonalGrowthJournal")
+                    new Uri("https://localhost:5001/MyProgressJournal"),
+                    new Uri("https://socialarts.club/MyProgressJournal")
                 },
                 Permissions =
                     {

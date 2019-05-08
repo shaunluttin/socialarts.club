@@ -9,7 +9,7 @@ const settings = {
     response_type: 'id_token token',
     scope: 'openid',
     silentRequestTimeout: 10000,
-    silent_redirect_uri: `${host}/PersonalGrowthJournal`
+    silent_redirect_uri: `${host}/MyProgressJournal`
 };
 
 const userManager = new Oidc.UserManager(settings);
