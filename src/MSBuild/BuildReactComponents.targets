@@ -1,0 +1,12 @@
+<Project>
+    <Target Name="BuildReactComponents" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
+        <PropertyGroup>
+            <BuildDir>react-components</BuildDir>
+        </PropertyGroup>
+        <CallTarget Targets="EnsureNode" />
+        <Message Importance="high" Text="Installing NPM packages..." />
+        <Exec WorkingDirectory="$(BuildDir)" Command="npm install" />
+        <Message Importance="high" Text="Building React components..." />
+        <Exec WorkingDirectory="$(BuildDir)" Command="npm run build:production" />
+    </Target>
+</Project>

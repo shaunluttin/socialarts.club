@@ -17,18 +17,7 @@
     <PackageReference Include="OpenIddict.EntityFrameworkCore" Version="2.0.0-rc3-final" />
   </ItemGroup>
 
-  
-  <Target Name="EnsureNode">
-    <Exec Command="node --version" ContinueOnError="true">
-      <Output TaskParameter="ExitCode" PropertyName="ErrorCode"/>
-    </Exec>
-    <Error Condition="'$(ErrorCode)' != '0'" Text="NodeJS is required to build and run this project." />
-  </Target>
-  <Target Name="BuildReactComponents" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Release' ">
-    <CallTarget Targets="EnsureNode" />
-    <Message Importance="high" Text="Installing NPM packages..." />
-    <Exec WorkingDirectory="react-components" Command="npm install" />
-    <Message Importance="high" Text="Building React components..." />
-    <Exec WorkingDirectory="react-components" Command="npm run build:production" />
-  </Target>
+  <Import Project="MSBuild/EnsureNode.targets"></Import>
+  <Import Project="MSBuild/BuildReactComponents.targets"></Import>
+
 </Project>

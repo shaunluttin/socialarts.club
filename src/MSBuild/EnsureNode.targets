@@ -1,0 +1,8 @@
+<Project>
+    <Target Name="EnsureNode">
+        <Exec Command="node --version" ContinueOnError="true">
+            <Output TaskParameter="ExitCode" PropertyName="ErrorCode"/>
+        </Exec>
+        <Error Condition="'$(ErrorCode)' != '0'" Text="NodeJS is required to build and run this project." />
+    </Target>
+</Project>
