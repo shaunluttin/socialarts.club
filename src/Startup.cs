@@ -17,6 +17,7 @@ using Microsoft.AspNetCore.SpaServices.Webpack;
 using socialarts.club.ViewComponents.Extensions;
 using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using AspNet.Security.OpenIdConnect.Primitives;
+using System.IO;
 
 namespace socialarts.club
 {
@@ -31,6 +32,8 @@ namespace socialarts.club
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddNodeServices();
+
             services.AddLogging();
 
             services.Configure<CookiePolicyOptions>(options =>
@@ -105,6 +108,11 @@ namespace socialarts.club
             {
                 app.UseDeveloperExceptionPage();
                 app.UseDatabaseErrorPage();
+                app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
+                {
+                    ProjectPath = Path.Combine(Directory.GetCurrentDirectory(), "react-components"),
+                    ConfigFile = "webpack.config.js",
+                });
             }
             else
             {

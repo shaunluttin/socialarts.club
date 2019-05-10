@@ -2,7 +2,10 @@ module.exports = {
     entry: "./src/index.tsx",
     output: {
         filename: "bundle.js",
-        path: __dirname + "/../wwwroot/react-components"
+        // The output directory as an absolute path.
+        path: __dirname + "/../wwwroot/react-components",
+        // The public URL of the output directory when accessed from a browser.
+        publicPath: '/react-components/',
     },
 
     // Enable sourcemaps for debugging webpack's output.
