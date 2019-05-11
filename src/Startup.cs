@@ -110,6 +110,9 @@ namespace socialarts.club
                 app.UseDatabaseErrorPage();
                 app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
                 {
+                    /**
+                     * TODO (nice-to-have) Enable hot module replacement (HMR).
+                     */
                     ProjectPath = Path.Combine(Directory.GetCurrentDirectory(), "react-components"),
                     ConfigFile = "webpack.config.js",
                 });
