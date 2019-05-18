@@ -10,8 +10,6 @@ function onInput(this: HTMLTextAreaElement) {
 document
   .querySelectorAll("textarea")
   .forEach((domContainer: HTMLTextAreaElement) => {
-    console.debug(domContainer);
-
     domContainer.setAttribute(
       "style",
       `height: ${domContainer.scrollHeight} px;overflow-y:hidden;`
