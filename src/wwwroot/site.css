@@ -32,6 +32,10 @@
   align-items: center;
 }
 
+.sa-tools-subnav-items a:hover {
+  color: white;
+}
+
 .body-content > footer {
   text-align: right;
 }
