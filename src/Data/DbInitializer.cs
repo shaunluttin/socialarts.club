@@ -48,10 +48,24 @@ namespace socialarts.club.Data
             await manager.CreateAsync(descriptor);
         }
 
+        // TODO (nice-to-have) consider de-duplicating the duplicate publisher data.
         private static async Task AddBibliographEntries(ApplicationDbContext context)
         {
-            // TODO (nice-to-have) consider de-duplicating the duplicate publisher data.
             var entries = new BibliographyEntry[] {
+                new BibliographyBook {
+                    Title = "Your Depression Map",
+                    Authors = "Paterson, R. J.",
+                    Year = "2002",
+                    Publisher = "Oakland, CA: New Harbinger",
+                    Slug = "paterson-2002"
+                },
+                new BibliographyBook {
+                    Title = "Doing it with style",
+                    Authors = "Crisp, Q., & Carroll, D.",
+                    Year = "1981",
+                    Publisher = "New York: Watts",
+                    Slug = "crisp-1981"
+                },
                 new BibliographyWebDocument {
                     Title = "Antidepressant Skills at Work: Dealing with mood problems in the workplace",
                     Authors = "Bilsker, D., Gilbert, M., & Samra, J.",
