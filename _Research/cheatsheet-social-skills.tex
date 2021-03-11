@@ -1,67 +1,114 @@
+% Build and open with PowerShell.
+% kill -Name FoxitReader; 
+% pdflatex .\cheatsheet-social-skills.tex; 
+% ii .\cheatsheet-social-skills.pdf;
+
 \documentclass{article}
 
 \usepackage{multicol}
 \usepackage{lscape}
+\usepackage{enumitem}
 \usepackage[letterpaper, landscape, margin=0.5in]{geometry}
 
 \pagenumbering{gobble}
+\setlist[itemize]{leftmargin=*}
+\setlist[description]{style=unboxed,leftmargin=*}
 
 \begin{document}
-\begin{multicols}{2}
 
-	\section{Giving Your Opinion}
+% TODO Use a command that's more appropriate than \section is.
+\section*{Cheatsheet for The Assertiveness Workbook}
 
-    Relax before you start.
-    Rehearse.
-    Dont' signal lack of confidence.
-    Feel free to signal your openness to other views.
-    Own your message.
-    Don't apologize for having an opinion.
-    You are not the source of all truth.
-    Don't intimidate.
-    Consider before justifying.
-    Don't let it slide.
+\begin{multicols}{3}
+
+	\section*{Giving Your Opinion}
+
+        \begin{description}
+            \item[Relax before you start.]
+            \item[Rehearse.]
+            \item[Don't signal lack of confidence.]
+            \item[Feel free to signal openness to other views.]
+            \item[Own your message.]
+            \item[Don't apologize for having an opinion.]
+            \item[You are not the source of all truth.]
+            \item[Don't intimidate.]
+            \item[Consider before justifying.]
+            \item[Don't let it slide.]
+        \end{description}
     
-	\section{Receving Positive Feedback}
+	\section*{Receving Positive Feedback}
 
-    TODO
+        A compliment is a gift to be accepted. It is not a bomb to be defused, nor a volleyball to be returned.
 
-	\section{Receving Corrective Feedback}
+        \begin{description}
+            \item[Thank you.]
+            \item[Thanks. I worked hard on that.]
+            \item[I'm glad you liked it.]
+            \item[Thanks. I appreciate that you noticed.]
+            \item[Thanks. I feel good about it too.]
+        \end{description}
 
-    Relax.
-    Avoid retaliation.
-    Hold back.
-    Consider your safety.
-    Don't demand perfection.
-    Validate their perceptions.
-    Validate their emotions.
-    Agree in part.
-    Listen and wait.
-    Narrow and specify. 
-    Ask for clarification. 
-    Explain without offering excuses.
-    Don't try to change their mind. 
-    Thank the critic.
-    Respond to the style.
-    Ask for time.
-    
-\columnbreak
+	\section*{Giving Positive Feedback}
 
-	\section{Giving Positive Feedback}
+        \begin{description}
+            \item[Refrain from the false complement.]
+            \item[Avoid the backhanded compliment.]
+            \item[Complement behavior that has occurred.]
+            \item[Be specific.]
+            \item[Use shaping.]
+        \end{description}
 
-    TODO
+	\section*{Receving Corrective Feedback}
 
-	\section{Giving Corrective Feedback}
+        \begin{description}
+            \item[Relax.]
+            \item[Avoid retaliation.]
+            \item[Hold back.]
+            \item[Consider your safety.]
+            \item[Don't demand perfection.]
+            \item[Validate their perceptions.]
+            \item[Validate their emotions.]
+            \item[Agree in part.]
+            \item[Listen and wait.]
+            \item[Narrow and specify. ]
+            \item[Ask for clarification.]
+            \item[Explain without offering excuses.]
+            \item[Don't try to change their mind. ]
+            \item[Thank the critic.]
+            \item[Respond to the style.]
+            \item[Ask for time.]
+        \end{description}
 
-    Choose your timing.
-    Watch the ratio.
-    Think before talking.
-    Talk one-to-one.
-    Frame the issue.
-    Be precise.
-    Include the positive in the message.
-    Give information, not advice.
-    Don't emote.
+     \subsection*{Additional items from Messages.}
+ 
+         \begin{description}
+             \item[Acknowledgement.] \emph{Yes. I was half an hour late for work today. My car battery died.}
+             \item[Clouding.] Use for statements that have a grain of truth but are intended mostly as insults.
+                 \begin{itemize}
+                     \item Agree in part. \emph{Yes. I do work more than 40 hours a week.}
+                     \item Agree in probability. \emph{It could be that I work too much.}
+                     \item Agree in principle. \emph{You're right. If I work too much, I will burn out.}
+                 \end{itemize}
+             \item[Probing.] \emph{What is it that bothers you about [important part of feedback]?}
+         \end{description}
+ 
+	\section*{Giving Corrective Feedback}
+
+        \begin{description}
+            \item[Choose your timing.]
+            \item[Watch the ratio.]
+            \item[Think before talking.]
+            \item[Talk one-to-one.]
+            \item[Frame the issue.]
+            \item[Be precise.]
+            \item[Include the positive in the message.]
+            \item[Give information, not advice.]
+            \item[Don't emote.]
+        \end{description}
 
 \end{multicols}
+
+
+Paterson, R. J. (2000). The assertiveness workbook: How to express your ideas and stand up for yourself at work and in relationships. Oakland, CA: New Harbinger Publications.
+
 \end{document}
