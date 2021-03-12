@@ -9,13 +9,13 @@
 \usepackage[letterpaper, landscape, margin=0.5in]{geometry}
 
 \pagenumbering{gobble}
-\setlist[itemize]{leftmargin=*}
-\setlist[description]{style=unboxed,leftmargin=*}
+\setlist[itemize]{leftmargin=*,label={},itemsep=0ex}
+\setlist[description]{style=unboxed,leftmargin=*,itemsep=0ex}
 
 \begin{document}
 
 % TODO Use a command that's more appropriate than \section is.
-\section*{Feedback Skills Cheatsheet}
+\section*{Feedback Skills For Software Developers Cheatsheet (prealpha-0.0.1)}
 
 \begin{multicols}{3}
 
@@ -34,45 +34,43 @@
 	\section*{Giving Positive Feedback}
 
         \begin{description}
-            \item[Refrain from the false complement.]
-            \item[Avoid the backhanded compliment.]
-            \item[Complement behavior that has occurred.]
-            \item[Be specific.]
-            \item[Use shaping.]
+            \item[Refrain from the false complement.] \emph{I found that two thousand line method very easy to understand.}
+            \item[Avoid the backhanded compliment.] \emph{Your code is so good that it doesn't need unit tests.}
+            \item[Resist complementing future behavior.] \emph{You're really responsive and helpful. Could you please help me with this problem...}
+            \item[Complement behavior that has occurred.] \emph{It was really responsive of you to help me with that problem on short notice.}
+            \item[Be specific.] \emph{I find that your use of short, single responsibility methods makes your code very readable.}
+            \item[Use shaping.] Reward gradual approximations of the goal. \emph{Well done. Your pull request increased overall test coverage from 27\% to 30\%.}
         \end{description}
+
+    \columnbreak 
 
 	\section*{Receving Corrective Feedback}
 
         \begin{description}
-            \item[Relax.]
-            \item[Avoid retaliation.]
-            \item[Hold back.]
-            \item[Consider your safety.]
-            \item[Don't demand perfection.]
-            \item[Validate their perceptions.]
-            \item[Validate their emotions.]
-            \item[Agree in part.]
-            \item[Listen and wait.]
-            \item[Narrow and specify. ]
-            \item[Ask for clarification.]
-            \item[Explain without offering excuses.]
-            \item[Don't try to change their mind. ]
-            \item[Thank the critic.]
-            \item[Respond to the style.]
-            \item[Ask for time.]
-        \end{description}
-
-     \subsection*{Additional items from Messages.}
- 
-         \begin{description}
-             \item[Acknowledgement.] \emph{Yes. I was half an hour late for work today. My car battery died.}
-             \item[Clouding.] Use for statements that have a grain of truth but are intended mostly as insults.
-                 \begin{itemize}
-                     \item Agree in part. \emph{Yes. I do work more than 40 hours a week.}
-                     \item Agree in probability. \emph{It could be that I work too much.}
-                     \item Agree in principle. \emph{You're right. If I work too much, I will burn out.}
-                 \end{itemize}
-             \item[Probing.] \emph{What is it that bothers you about [important part of feedback]?}
+            \item[Relax.] Open your mouth slightly. Soften your eyes. Open your hands. Relax your belly.
+            \item[Avoid retaliation.] \emph {Well, it isn't like it's easy to read your forced use of recursion.}
+            \item[Hold back.] This is sometimes called `elective blindness' or `elective deafness'. In other words, ignore the nasty face or sharp tone.
+            \item[Consider your safety.] If violence is a risk, it is often not worth being assertive.
+            \item[Don't demand perfection.] Understand that most people simply aren't that skilled at giving feedback. Probe for value.
+            \item[Validate their perceptions.] \emph{I can see how you might find this use of recursion awkward. A \texttt{while} loop might have been more natural.}
+            \item[Validate their emotions.] \emph{This is important to you.} \emph{You're really quite concerned about this.}
+            \item[Agree in part.] \emph{You're right. Opinionated, automated formatting does have its downsides.}
+            \item[Listen and wait.] Let the critic voice their concern completely. Take the criticism \emph{in} without taking it \emph{on}.
+            \item[Narrow and specify.] \emph{What's one downside of opinionated, automated formatting that comes to mind?}
+            \item[Ask for clarification.] \emph{You mentioned a preference for 160 character lines. How important is that to you?}
+            \item[Explain without offering excuses.] \emph{I used recursion here because I find it easier to reason about immutable code.}
+            \item[Don't try to change their mind.] \emph{Agree to disagree. It's rare for a resolution to require full agreement.}
+            \item[Thank the critic.] We need feedback. Thanking them reminds us of this.
+            \item[Respond to the style.] \emph{That was really helpful, specific feedback - thank you for speaking one-on-one.}
+            \item[Ask for time.] \emph{Thank you for bringing up my persistence on problems. How about we meet next week, once I've had some time to consider what you said.}
+            \item[Acknowledge.] \emph{Yes. I was half an hour late for work today. My car battery died.}
+            \item[Cloud.] Use for statements that have a grain of truth but are intended mostly as insults.
+              \begin{itemize}
+                 \item Agree in part. \emph{Yes. I do work more than 40 hours a week.}
+                 \item Agree in probability. \emph{It could be that I work too much.}
+                 \item Agree in principle. \emph{You're right. If I work too much, I will burn out.}
+              \end{itemize}
+            \item[Probe.] \emph{What is it that bothers you about [important part of feedback]?}
          \end{description}
  
 	\section*{Giving Corrective Feedback}
