@@ -5,3 +5,5 @@ yarn-error.log
 
 app.db
 **/wwwroot/dist/
+
+*.swp
