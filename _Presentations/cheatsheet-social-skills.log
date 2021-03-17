@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.3.8)  17 MAR 2021 09:48
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.3.8)  17 MAR 2021 09:50
 entering extended mode
 **./cheatsheet-social-skills.tex
 (cheatsheet-social-skills.tex
@@ -146,6 +146,9 @@ Package: iftex 2020/03/06 v1.0d TeX engine tests
 \Gm@dimlist=\toks18
 
 (C:\Users\bigfo\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
+(C:\Users\bigfo\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\helvet.sty
+Package: helvet 2020/03/25 PSNFSS-v9.3 (WaS) 
+)
 (C:\Users\bigfo\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
 Package: fancyhdr 2021/01/28 v4.0.1 Extensive control of page headers and foote
 rs
@@ -159,11 +162,8 @@ rs
 \f@nch@O@olf=\skip59
 \f@nch@O@orf=\skip60
 )
-(C:\Users\bigfo\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\helvet.sty
-Package: helvet 2020/03/25 PSNFSS-v9.3 (WaS) 
-)
 LaTeX Font Info:    Trying to load font information for OT1+phv on input line 2
-4.
+1.
 
 (C:\Users\bigfo\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1phv.fd
 File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
@@ -176,20 +176,20 @@ File: l3backend-pdftex.def 2021-02-18 L3 backend support: PDF output (pdfTeX)
 ) (cheatsheet-social-skills.aux)
 \openout1 = `cheatsheet-social-skills.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
-LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
 
 (C:\Users\bigfo\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
@@ -220,15 +220,15 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: landscape 
-* h-part:(L,W,R)=(43.36243pt, 708.24513pt, 43.36243pt)
-* v-part:(T,H,B)=(43.36243pt, 527.57014pt, 43.36243pt)
+* h-part:(L,W,R)=(50.58878pt, 693.79243pt, 50.58878pt)
+* v-part:(T,H,B)=(50.58878pt, 513.11745pt, 50.58878pt)
 * \paperwidth=794.96999pt
 * \paperheight=614.295pt
-* \textwidth=708.24513pt
-* \textheight=527.57014pt
-* \oddsidemargin=-28.90756pt
-* \evensidemargin=-28.90756pt
-* \topmargin=-65.90756pt
+* \textwidth=693.79243pt
+* \textheight=513.11745pt
+* \oddsidemargin=-21.68121pt
+* \evensidemargin=-21.68121pt
+* \topmargin=-58.68121pt
 * \headheight=12.0pt
 * \headsep=25.0pt
 * \topskip=10.0pt
@@ -248,21 +248,21 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 
 
 Package enumitem Warning: Negative labelwidth. This does not make much
-(enumitem)                sense, on input line 33.
+(enumitem)                sense, on input line 30.
 
 
 Package enumitem Warning: Negative labelwidth. This does not make much
-(enumitem)                sense, on input line 43.
+(enumitem)                sense, on input line 40.
 
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 43.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 40.
 
 Package enumitem Warning: Negative labelwidth. This does not make much
-(enumitem)                sense, on input line 56.
+(enumitem)                sense, on input line 53.
 
 
 Package enumitem Warning: Negative labelwidth. This does not make much
-(enumitem)                sense, on input line 85.
+(enumitem)                sense, on input line 82.
 
 [1{C:/Users/bigfo/AppData/Local/MiKTeX/pdftex/config/pdftex.map}
 
@@ -282,7 +282,7 @@ type1/public/amsfonts/cm/cmitt10.pfb><C:/Users/bigfo/AppData/Local/Programs/MiK
 TeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/bigfo/AppData/Local/Programs/
 MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/bigfo/AppData/Local/Progra
 ms/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on cheatsheet-social-skills.pdf (1 page, 38519 bytes).
+Output written on cheatsheet-social-skills.pdf (1 page, 38553 bytes).
 PDF statistics:
  23 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
