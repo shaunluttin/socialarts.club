@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.3.8)  12 MAR 2021 16:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.3.8)  17 MAR 2021 09:37
 entering extended mode
 **./cheatsheet-social-skills.tex
 (cheatsheet-social-skills.tex
@@ -146,7 +146,15 @@ Package: iftex 2020/03/06 v1.0d TeX engine tests
 \Gm@dimlist=\toks18
 
 (C:\Users\bigfo\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
+(C:\Users\bigfo\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\helvet.sty
+Package: helvet 2020/03/25 PSNFSS-v9.3 (WaS) 
+)
+LaTeX Font Info:    Trying to load font information for OT1+phv on input line 1
+8.
 
+(C:\Users\bigfo\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1phv.fd
+File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
+)
 (C:\Users\bigfo\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
 tex.def
 File: l3backend-pdftex.def 2021-02-18 L3 backend support: PDF output (pdfTeX)
@@ -155,20 +163,20 @@ File: l3backend-pdftex.def 2021-02-18 L3 backend support: PDF output (pdfTeX)
 ) (cheatsheet-social-skills.aux)
 \openout1 = `cheatsheet-social-skills.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
-LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
 
 (C:\Users\bigfo\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
@@ -227,41 +235,43 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 
 
 Package enumitem Warning: Negative labelwidth. This does not make much
-(enumitem)                sense, on input line 27.
+(enumitem)                sense, on input line 30.
 
 
 Package enumitem Warning: Negative labelwidth. This does not make much
-(enumitem)                sense, on input line 37.
+(enumitem)                sense, on input line 40.
+
+LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10> not available
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 40.
+
+Package enumitem Warning: Negative labelwidth. This does not make much
+(enumitem)                sense, on input line 53.
 
 
 Package enumitem Warning: Negative labelwidth. This does not make much
-(enumitem)                sense, on input line 50.
-
-
-Package enumitem Warning: Negative labelwidth. This does not make much
-(enumitem)                sense, on input line 79.
+(enumitem)                sense, on input line 82.
 
 [1
 
 {C:/Users/bigfo/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
 (cheatsheet-social-skills.aux) ) 
 Here is how much of TeX's memory you used:
- 2095 strings out of 479334
- 32798 string characters out of 2857085
- 350664 words of memory out of 3000000
- 19574 multiletter control sequences out of 15000+200000
- 404857 words of font info for 32 fonts, out of 3000000 for 9000
+ 2165 strings out of 479334
+ 33939 string characters out of 2857085
+ 350934 words of memory out of 3000000
+ 19634 multiletter control sequences out of 15000+200000
+ 411116 words of font info for 37 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  68i,4n,74p,244b,348s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Users/bigfo/AppData/Local/Programs/MiKTeX/f
-onts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/bigfo/AppData/Local/Programs
-/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/bigfo/AppData/Local
-/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmitt10.pfb><C:/Users/bigfo/App
-Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/b
-igfo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on cheatsheet-social-skills.pdf (1 page, 81428 bytes).
+{C:/Users/bigfo/AppData/Local/Programs/MiKTeX/f
+onts/enc/dvips/base/8r.enc}<C:/Users/bigfo/AppData/Local/Programs/MiKTeX/fonts/
+type1/public/amsfonts/cm/cmitt10.pfb><C:/Users/bigfo/AppData/Local/Programs/MiK
+TeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/bigfo/AppData/Local/Programs/
+MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/bigfo/AppData/Local/Progra
+ms/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on cheatsheet-social-skills.pdf (1 page, 39040 bytes).
 PDF statistics:
- 26 PDF objects out of 1000 (max. 8388607)
+ 23 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
