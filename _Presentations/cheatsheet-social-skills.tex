@@ -5,8 +5,13 @@
 \usepackage{enumitem}
 \usepackage[letterpaper, landscape, margin=0.7in]{geometry}
 
+% See https://tex.stackexchange.com/q/131742/137042
+\usepackage[most]{tcolorbox}
+
 \usepackage{helvet}
 \renewcommand{\familydefault}{\sfdefault}
+
+\usepackage[small]{titlesec}
 
 \pagenumbering{gobble}
 \setlist[itemize]{leftmargin=*,label={},itemsep=0ex}
@@ -18,9 +23,22 @@
 \lhead{Feedback Skills For Software Developers Cheatsheet}
 \rhead{prealpha-0.0.2}
 
+% https://www.overleaf.com/learn/latex/Using_colours_in_LaTeX
+\usepackage{xcolor}
+
+\colorlet{rainbow1}{red}
+\colorlet{rainbow2}{orange}
+\colorlet{rainbow3}{yellow}
+\colorlet{rainbow4}{green}
+\colorlet{rainbow5}{blue}
+\colorlet{rainbow6}{purple}
+\colorlet{rainbow7}{violet}
+
 \begin{document}
 
 \begin{multicols}{3}
+
+    \begin{tcolorbox}[breakable,colback=rainbow1]
 
 	\section*{Receving Positive Feedback}
 
@@ -34,6 +52,10 @@
             \item[Thanks. I feel good about it too.]
         \end{description}
 
+    \end{tcolorbox}
+
+    \begin{tcolorbox}[breakable,colback=rainbow2]
+
 	\section*{Giving Helpful Positive Feedback}
 
         \begin{description}
@@ -45,7 +67,9 @@
             \item[Use shaping.] Reward gradual approximations of the goal. \emph{Well done. Your pull request increased overall test coverage from 27\% to 30\%.}
         \end{description}
 
-    \columnbreak 
+    \end{tcolorbox}
+
+    \begin{tcolorbox}[breakable,colback=rainbow3]
 
 	\section*{Receving Corrective Feedback}
 
@@ -75,7 +99,11 @@
               \end{itemize}
             \item[Probe.] \emph{What is it that bothers you about [important part of feedback]?}
          \end{description}
+
+    \end{tcolorbox}
  
+    \begin{tcolorbox}[breakable,colback=rainbow4]
+
 	\section*{Giving Corrective Feedback}
 
         \begin{description}
@@ -89,6 +117,8 @@
             \item[Give information, not advice.]
             \item[Don't emote.]
         \end{description}
+
+    \end{tcolorbox}
 
 \end{multicols}
 
