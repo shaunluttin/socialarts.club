@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.3.8)  17 MAR 2021 11:11
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.3.8)  19 MAR 2021 09:52
 entering extended mode
 **./cheatsheet-social-skills.tex
 (cheatsheet-social-skills.tex
@@ -758,7 +758,7 @@ rs
 \f@nch@O@orf=\skip65
 )
 LaTeX Font Info:    Trying to load font information for OT1+phv on input line 3
-7.
+9.
 
 (C:\Users\bigfo\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\ot1phv.fd
 File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
@@ -766,20 +766,20 @@ File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
 (cheatsheet-social-skills.aux)
 \openout1 = `cheatsheet-social-skills.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
-LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 39.
+LaTeX Font Info:    ... okay on input line 39.
 
 (C:\Users\bigfo\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
@@ -844,58 +844,43 @@ Package: inputenc 2020/08/01 v1.3d Input encoding file
 )
 
 Package enumitem Warning: Negative labelwidth. This does not make much
-(enumitem)                sense, on input line 48.
+(enumitem)                sense, on input line 51.
 
 
 Package enumitem Warning: Negative labelwidth. This does not make much
-(enumitem)                sense, on input line 62.
+(enumitem)                sense, on input line 75.
 
-LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <10> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 62.
+LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <5> not available
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 75.
 
 Package enumitem Warning: Negative labelwidth. This does not make much
-(enumitem)                sense, on input line 77.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 81--82
-   []\OT1/phv/b/n/10 Don't de-mand per-fec-tion.[] \OT1/phv/m/n/10 Un-der-stand
-
- []
-
-
-Underfull \hbox (badness 6173) in paragraph at lines 90--91
-   []\OT1/phv/b/n/10 Thank the critic.[] \OT1/phv/m/n/10 We need feed-back.
- []
+(enumitem)                sense, on input line 90.
 
 
 Package enumitem Warning: Negative labelwidth. This does not make much
-(enumitem)                sense, on input line 110.
-
-
-Overfull \vbox (35.39554pt too high) has occurred while \output is active []
-
+(enumitem)                sense, on input line 123.
 
 [1{C:/Users/bigfo/AppData/Local/MiKTeX/pdftex/config/pdftex.map}
 
-] [2]
+]
 (cheatsheet-social-skills.aux) ) 
 Here is how much of TeX's memory you used:
- 20426 strings out of 479334
- 435383 string characters out of 2857085
- 788482 words of memory out of 3000000
+ 20427 strings out of 479334
+ 435365 string characters out of 2857085
+ 785650 words of memory out of 3000000
  37530 multiletter control sequences out of 15000+200000
- 410510 words of font info for 36 fonts, out of 3000000 for 9000
+ 412270 words of font info for 38 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 101i,11n,108p,440b,1062s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 101i,11n,108p,440b,1083s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/bigfo/AppData/Local/Programs/MiKTeX/f
 onts/enc/dvips/base/8r.enc}<C:/Users/bigfo/AppData/Local/Programs/MiKTeX/fonts/
 type1/public/amsfonts/cm/cmitt10.pfb><C:/Users/bigfo/AppData/Local/Programs/MiK
 TeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/bigfo/AppData/Local/Programs/
 MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/bigfo/AppData/Local/Progra
 ms/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on cheatsheet-social-skills.pdf (2 pages, 50520 bytes).
+Output written on cheatsheet-social-skills.pdf (1 page, 49887 bytes).
 PDF statistics:
- 65 PDF objects out of 1000 (max. 8388607)
+ 62 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  157 words of extra memory for PDF output out of 10000 (max. 10000000)
 

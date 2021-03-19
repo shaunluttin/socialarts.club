@@ -11,7 +11,7 @@
 \usepackage{helvet}
 \renewcommand{\familydefault}{\sfdefault}
 
-\usepackage[small]{titlesec}
+\usepackage[tiny]{titlesec}
 
 \pagenumbering{gobble}
 \setlist[itemize]{leftmargin=*,label={},itemsep=0ex}
@@ -26,8 +26,10 @@
 % https://www.overleaf.com/learn/latex/Using_colours_in_LaTeX
 \usepackage{xcolor}
 
+\definecolor{salmon}{rgb}{0.98,0.50,0.45}
+
 \colorlet{rainbow1}{red}
-\colorlet{rainbow2}{orange}
+\colorlet{rainbow2}{salmon}
 \colorlet{rainbow3}{yellow}
 \colorlet{rainbow4}{green}
 \colorlet{rainbow5}{blue}
@@ -35,6 +37,7 @@
 \colorlet{rainbow7}{violet}
 
 \begin{document}
+\begin{tiny}
 
 \begin{multicols}{3}
 
@@ -57,6 +60,16 @@
     \begin{tcolorbox}[breakable,colback=rainbow2]
 
 	\section*{Giving Helpful Positive Feedback}
+
+        \textbf{Barbara Fredrickson}
+        \begin{itemize}
+            \item People are like an aperature.
+            \item Negative feedback has more weight for the reciever.
+            \item Many people have a secret sense of incompetence.
+            \item Desensitize people by using the 3:1 ratio.
+            \item This takes a concerted effort!
+            \item Focus within shooting distance.
+        \end{itemize}
 
         \begin{description}
             \item[Refrain from the false complement.] \emph{I found that two thousand line method very easy to understand.}
@@ -127,5 +140,5 @@
     \item McKay, M., Davis, M., \& Fanning, P. (2009). Messages: The Communication Skills Book. Oakland, CA: New Harbinger Publications.
 \end{itemize}
 
-
+\end{tiny}
 \end{document}
