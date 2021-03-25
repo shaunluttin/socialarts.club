@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.3.8)  19 MAR 2021 09:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.3.8)  25 MAR 2021 10:02
 entering extended mode
 **./cheatsheet-social-skills.tex
 (cheatsheet-social-skills.tex
@@ -844,41 +844,41 @@ Package: inputenc 2020/08/01 v1.3d Input encoding file
 )
 
 Package enumitem Warning: Negative labelwidth. This does not make much
-(enumitem)                sense, on input line 51.
+(enumitem)                sense, on input line 56.
 
 
 Package enumitem Warning: Negative labelwidth. This does not make much
-(enumitem)                sense, on input line 75.
+(enumitem)                sense, on input line 85.
 
 LaTeX Font Info:    Font shape `OT1/phv/m/it' in size <5> not available
-(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 75.
+(Font)              Font shape `OT1/phv/m/sl' tried instead on input line 85.
 
 Package enumitem Warning: Negative labelwidth. This does not make much
-(enumitem)                sense, on input line 90.
+(enumitem)                sense, on input line 105.
 
 
 Package enumitem Warning: Negative labelwidth. This does not make much
-(enumitem)                sense, on input line 123.
+(enumitem)                sense, on input line 143.
 
 [1{C:/Users/bigfo/AppData/Local/MiKTeX/pdftex/config/pdftex.map}
 
 ]
 (cheatsheet-social-skills.aux) ) 
 Here is how much of TeX's memory you used:
- 20427 strings out of 479334
- 435365 string characters out of 2857085
- 785650 words of memory out of 3000000
- 37530 multiletter control sequences out of 15000+200000
- 412270 words of font info for 38 fonts, out of 3000000 for 9000
+ 20433 strings out of 479334
+ 435431 string characters out of 2857085
+ 788097 words of memory out of 3000000
+ 37537 multiletter control sequences out of 15000+200000
+ 410637 words of font info for 36 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 101i,11n,108p,440b,1083s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 101i,11n,108p,440b,984s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/bigfo/AppData/Local/Programs/MiKTeX/f
 onts/enc/dvips/base/8r.enc}<C:/Users/bigfo/AppData/Local/Programs/MiKTeX/fonts/
 type1/public/amsfonts/cm/cmitt10.pfb><C:/Users/bigfo/AppData/Local/Programs/MiK
 TeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/bigfo/AppData/Local/Programs/
 MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/bigfo/AppData/Local/Progra
 ms/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on cheatsheet-social-skills.pdf (1 page, 49887 bytes).
+Output written on cheatsheet-social-skills.pdf (1 page, 50424 bytes).
 PDF statistics:
  62 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
