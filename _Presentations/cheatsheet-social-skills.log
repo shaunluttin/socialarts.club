@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.3.8)  26 MAR 2021 09:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.3.8)  26 MAR 2021 09:25
 entering extended mode
 **./cheatsheet-social-skills.tex
 (cheatsheet-social-skills.tex
@@ -867,7 +867,7 @@ Package enumitem Warning: Negative labelwidth. This does not make much
 Here is how much of TeX's memory you used:
  20433 strings out of 479334
  435431 string characters out of 2857085
- 801094 words of memory out of 3000000
+ 801100 words of memory out of 3000000
  37537 multiletter control sequences out of 15000+200000
  410637 words of font info for 36 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -878,7 +878,7 @@ type1/public/amsfonts/cm/cmitt10.pfb><C:/Users/bigfo/AppData/Local/Programs/MiK
 TeX/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/bigfo/AppData/Local/Programs/
 MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/bigfo/AppData/Local/Progra
 ms/MiKTeX/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on cheatsheet-social-skills.pdf (1 page, 53093 bytes).
+Output written on cheatsheet-social-skills.pdf (1 page, 53173 bytes).
 PDF statistics:
  62 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
